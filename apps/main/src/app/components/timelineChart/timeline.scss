@@ -1,0 +1,24 @@
+timeline-chart {
+font-size:10px;
+  .bar-chart {
+      padding-left: 20px;
+  }
+  svg {
+    g.columns {
+      text.column-text {
+        fill : white;
+      }
+    }
+    g {
+      rect {
+        fill : white;
+        opacity: 0.9;
+      }
+    }
+    g.legends {
+      text.legend-text {
+        fill : white;
+      }
+    }
+  }
+}

@@ -1,0 +1,43 @@
+<div class="pattern-box">
+	<div layout="row" layout-wrap>
+		<div flex-gt-xs="40" flex="100">
+	 	   <md-list flex>
+	 	      <md-list-item class="md-1-line">
+	 	        <div class="md-list-item-text" layout="column">
+	 	            <h4>PROCESS</h4>
+	 	            <p class="md-secondary">
+						{{vm.pattern.process.name}}
+						<img ng-show="vm.pattern.process.img" class="process-image" ng-src="assets/processes/{{vm.pattern.process.img}}.jpg"/>
+						<md-tooltip>{{vm.pattern.process.name}}</md-tooltip>
+					</p>
+	 	        </div>
+	 	      </md-list-item>
+	 	      <md-list-item class="md-1-line">
+	 	        <div class="md-list-item-text" layout="column">
+	 	            <h4>TOTAL</h4>
+	 	            <p class="md-secondary">{{vm.pattern.process.total.toFixed(1)}} sec</p>
+	 	        </div>
+	 	      </md-list-item>
+	 	      <md-list-item class="md-1-line">
+	 	        <div class="md-list-item-text" layout="column">
+	 	            <h4>&amp; OF WHOLE</h4>
+	 	            <p class="md-secondary">{{vm.pattern.process.percentage}} %</p>
+	 	        </div>
+	 	      </md-list-item>
+	 	      <md-list-item class="md-1-line">
+	 	        <div class="md-list-item-text" layout="column">
+	 	            <h4>PERSON</h4>
+	 	            <p class="md-secondary">
+						<img ng-show="vm.pattern.member.face" class="user-avatar" ng-src="assets/faces/{{vm.pattern.member.face}}"/>
+						<span ng-show="!vm.pattern.member.face">-</span>
+						<md-tooltip>{{vm.pattern.member.name}}</md-tooltip>
+					</p>
+	 	        </div>
+	 	      </md-list-item>
+	 		</md-list>
+		</div>
+		<div flex-gt-xs="60" flex="100">
+			<timeline-chart selector="assess-pattern-timeline" data="vm.workHistory" columns="vm.progressList" pattern="vm.pattern" width="300"></timeline-chart>
+		</div>
+	</div>
+</div>

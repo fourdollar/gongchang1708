@@ -1,0 +1,29 @@
+div.console-message-area {
+md-card-content{overflow:hidden;}
+	md-tabs .md-tab.md-active {
+		color : rgb(227, 228, 234);
+	 }
+	 
+	 md-tabs .md-tab {
+		 color: rgba(249, 247, 247, 0.54);
+	 }
+	 
+	 md-tab-content {
+		 font-size: 12px;
+		 
+		 md-content{
+			 color: white;
+			 
+			 p {
+				 margin-top: 2px;
+				 margin-bottom: 2px;
+			 }
+		 }
+		 md-content.md-padding {
+		     padding: 4px;
+		 }
+		 md-content{
+		   overflow:hidden;
+		 }
+	 }
+}

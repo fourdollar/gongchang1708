@@ -1,0 +1,24 @@
+<div class="capturing-data-area">
+	<md-card>
+	    <md-card-content>
+<!-- input type="button" ng-click="testfunc()" -->
+<videogular vg-player-ready="vm.onPlayerReady($API)" vg-complete="vm.onComplete()" vg-auto-play="auto" vg-change-source="onChangeSource($source)">
+	    <span ng-repeat="cam in videoList">
+	    	<div class="camIcon" ng-click="selectVideo($index)">
+	    		<img src="./assets/icons/cam.png">
+				CAM-{{$index+1}}
+				<md-tooltip md-direction="top">{{cam.description}}</md-tooltip>
+			</div>
+	    </span>
+	<div id="dispImg" ng-class="{njnone:camNo==undefined}">
+        <canvas id="cv" height="170px" width="302px"></canvas>
+	</div>
+	<vg-media id="disVideoMedia" vg-src="vm.config.sources" vg-type="video" ng-class="{njnone:camNo==undefined}"></vg-media>
+</videogular>
+
+	<div>
+		<div ng-class="{njnone:camNo!=undefined}" class="selectMessage">SELECT CAMERA</div>
+	</div>
+		</md-card-content>
+	</md-card>
+</div>

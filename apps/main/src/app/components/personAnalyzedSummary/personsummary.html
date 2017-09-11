@@ -1,0 +1,32 @@
+<md-card>
+    <div ng-show="vm.analyzing">
+		<md-progress-circular ng-disabled="!vm.analyzing" md-diameter="96" md-mode='indeterminate'></md-progress-circular>
+	</div>
+	<div ng-show="!vm.analyzing">
+	    <md-card-title ng-show="vm.member">
+	       <md-card-title-text>
+	           {{vm.member.name}} さんの分析結果
+	       </md-card-title-text>
+	    </md-card-title>
+	    <md-card-content ng-show="vm.member">
+		  <p>
+			  {{vm.member.assessment.dialog_summary}}
+		  </p>
+		  <bar-chart selector="person-barchart" data="vm.member.assessment.data"></bar-chart>
+		  <p>
+			  {{vm.member.assessment.dialog_detail.join(' ')}}
+		  </p>
+		</md-card-content>
+	
+		<!-- if any person is not selected, show instruction messages -->
+	    <md-card-title ng-show="!vm.member">
+	       <md-card-title-text>
+	           分析結果を表示します
+	       </md-card-title-text>
+	    </md-card-title>
+	    <md-card-content ng-show="!vm.member">
+	
+		</md-card-content>
+		<!-- end of instruction messages -->
+	</div>
+</md-card>

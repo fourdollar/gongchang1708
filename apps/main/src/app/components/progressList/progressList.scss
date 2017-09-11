@@ -1,0 +1,36 @@
+div.progress-list-area {
+
+md-card-content{
+color:white;
+overflow:overlay;
+img{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: inline-block;
+    }  
+.processLabel{
+  display:inline-block;
+  font-size:12px;
+  line-height:25px;
+  vertical-align:top;
+}
+.processId{
+  width:15px;
+  text-align:center;
+}
+.processName{
+  width:30px;
+}
+.processAmount{
+  width:30px;
+  text-align:right;
+}
+div{display:inline-block;}
+
+
+}
+
+
+
+}

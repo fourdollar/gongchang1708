@@ -1,0 +1,9 @@
+<md-toolbar layout="row" layout-align="end center">
+    <div class="page-title">
+		{{vm.pagetitle}}
+    </div>
+	<div hide-xs hide-sm>
+		<span class="nowtime">{{vm.now.day}}, {{vm.now.month}} {{vm.now.date}} {{vm.now.hour}}<span ng-class="{'hidestr':vm.count%2==0}">:</span>{{vm.now.min}}</span>
+		<md-button class="md-icon-button"><md-icon class="material-icons md-light">exit_to_app</md-icon></md-button>
+	</div>
+</md-toolbar>

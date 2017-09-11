@@ -1,0 +1,32 @@
+pattern-box {
+	.pattern-box {
+		background: rgba(113, 193, 255, 0.4);
+		color: #F4FBFF;
+	}
+	
+	md-list {
+		md-list-item {
+			.md-list-item-text {
+				font-size: 0.8em;
+				
+				h4 {
+					margin : 0px;
+				}
+				
+				img.process-image {
+					width : 20px;
+					height: 20px;
+					border-radius: 50%;
+					display: inline-block;
+				    margin-left: auto;
+				    margin-right: auto;
+				}
+	
+				img.user-avatar {
+					width : 20px;
+					display:inline-block;
+				}
+			}
+		}
+	}	
+}

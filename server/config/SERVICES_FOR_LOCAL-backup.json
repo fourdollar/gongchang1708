@@ -1,0 +1,116 @@
+{
+  "dialog": [
+     {
+        "name": "dialog-service-KN2",
+        "label": "dialog",
+        "plan": "standard",
+        "credentials": {
+           "url": "https://gateway.watsonplatform.net/dialog/api",
+           "password": "NONetDoyOc0s",
+           "username": "c9d082ab-a236-43f8-8f49-dcd4cc0b18ce"
+        }
+     }
+  ],
+
+    "watson_vision_combined": [
+        {
+            "credentials": {
+                "url": "https://gateway-a.watsonplatform.net/visual-recognition/api",
+                "note": "This is your previous free key. If you want a different one, please wait 24 hours after unbinding the key and try again.",
+                "api_key": "f4f48d9284532aa67300dab7bd764e97b1c97b9d"
+            },
+            "syslog_drain_url": null,
+            "label": "watson_vision_combined",
+            "provider": null,
+            "plan": "free",
+            "name": "visual-recognition-free",
+            "tags": [
+                "watson",
+                "ibm_created",
+                "ibm_dedicated_public"
+            ]
+        }
+    ],
+    "pm-20": [
+        {
+            "credentials": {
+                "url": "https://palbyp.pmservice.ibmcloud.com/pm/v1",
+                "access_key": "Vo2nap15CcW4mc0LoRX/7kVrkwQxBvZdOJdgv4ZkU05hCFVVmAmQMn9kmb7eMhXLHxGxQ3pIogjgEOjN0TGDTcL0h32gVzPkwMbmHXNpi+FLzuEy7gogt0CZVX78tblxgOT5qfhG792KnBqD5d1d5B9+3z4FEy2UXa8+9fA7oJk="
+            },
+            "syslog_drain_url": null,
+            "label": "pm-20",
+            "provider": null,
+            "plan": "Free",
+            "name": "Predictive Analytics-KN1",
+            "tags": [
+                "data_management",
+                "ibm_created",
+                "ibm_dedicated_public"
+            ]
+        },
+        {
+            "credentials": {
+                "url": "https://palbyp.pmservice.ibmcloud.com/pm/v1",
+                "access_key": "iZeOUejNv5H4AiQcW8+neRKOEf6psHWoVdPzPK8o+hq19hgeR9utSOMftrRu9AcnHxGxQ3pIogjgEOjN0TGDTcL0h32gVzPkwMbmHXNpi+FLzuEy7gogt0CZVX78tblxgOT5qfhG792KnBqD5d1d5B9+3z4FEy2UXa8+9fA7oJk="
+            },
+            "syslog_drain_url": null,
+            "label": "pm-20",
+            "provider": null,
+            "plan": "Free",
+            "name": "Predictive Analytics-KN2",
+            "tags": [
+                "data_management",
+                "ibm_created",
+                "ibm_dedicated_public"
+            ]
+        }
+    ],
+    "dashDB": [
+        {
+            "credentials": {
+                "port": 50000,
+                "db": "BLUDB",
+                "username": "dash6079",
+                "ssljdbcurl": "jdbc:db2://dashdb-entry-yp-dal09-10.services.dal.bluemix.net:50001/BLUDB:sslConnection=true;",
+                "host": "dashdb-entry-yp-dal09-10.services.dal.bluemix.net",
+                "https_url": "https://dashdb-entry-yp-dal09-10.services.dal.bluemix.net:8443",
+                "dsn": "DATABASE=BLUDB;HOSTNAME=dashdb-entry-yp-dal09-10.services.dal.bluemix.net;PORT=50000;PROTOCOL=TCPIP;UID=dash6079;PWD=eeC4rn0VustO;",
+                "hostname": "dashdb-entry-yp-dal09-10.services.dal.bluemix.net",
+                "jdbcurl": "jdbc:db2://dashdb-entry-yp-dal09-10.services.dal.bluemix.net:50000/BLUDB",
+                "ssldsn": "DATABASE=BLUDB;HOSTNAME=dashdb-entry-yp-dal09-10.services.dal.bluemix.net;PORT=50001;PROTOCOL=TCPIP;UID=dash6079;PWD=eeC4rn0VustO;Security=SSL;",
+                "uri": "db2://dash6079:eeC4rn0VustO@dashdb-entry-yp-dal09-10.services.dal.bluemix.net:50000/BLUDB",
+                "password": "eeC4rn0VustO"
+            },
+            "syslog_drain_url": null,
+            "label": "dashDB",
+            "provider": null,
+            "plan": "Entry",
+            "name": "dashDB-cg",
+            "tags": [
+                "big_data",
+                "ibm_created",
+                "ibm_dedicated_public"
+            ]
+        }
+    ],
+    "AvailabilityMonitoring": [
+        {
+            "credentials": {
+                "pass": "a15ad328-c419-4c58-a526-7a2eb72773f6",
+                "id": "0b10ab5a-8e8b-449f-8288-2a0e3de53d84",
+                "url": "https://perfbroker.ng.bluemix.net/1.0/credentials/0b10ab5a-8e8b-449f-8288-2a0e3de53d84"
+            },
+            "syslog_drain_url": null,
+            "label": "AvailabilityMonitoring",
+            "provider": null,
+            "plan": "Lite",
+            "name": "availability-monitoring-auto",
+            "tags": [
+                "ibm_created",
+                "ibm_beta",
+                "bluemix_extensions",
+                "dev_ops"
+            ]
+        }
+    ]
+}

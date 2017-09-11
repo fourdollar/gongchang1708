@@ -1,0 +1,15 @@
+{
+  "name": "generator-sunburst",
+  "version": "1.0.0",
+  "description": "",
+  "main": "generator-sunburst.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "argv": "0.0.2",
+    "lodash": "^4.13.1"
+  }
+}

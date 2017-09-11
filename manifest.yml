@@ -1,0 +1,15 @@
+applications:
+- path: .
+  memory: 1024M
+  instances: 1
+  domain: mybluemix.net
+  name: cogworkerfeng
+  host: cogworkerfeng
+  disk_quota: 2048M
+  services:
+  - Visual Recognition-5p
+  - dialog-service-KN2
+  - Machine Learning-io1
+  - Machine Learning-io2
+  env:
+    ENV_VR_CLASSIFIER_ID: work_list_982437873

@@ -1,0 +1,36 @@
+{
+  "name": "app-template",
+  "version": "0.0.1",
+  "description": "Cognitive Factory Server",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "supervisor -i node_modules -w app.js,server app.js",
+    "test": "jasmine-node spec --watch --autotest --color --verbose --captureExceptions"
+  },
+  "repository": {},
+  "author": "",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "body-parser": "^1.13.1",
+    "debug": "^2.2.0",
+    "events": "^1.0.2",
+    "express": "4.12.x",
+    "express-session": "^1.11.3",
+    "http-auth": "^2.2.8",
+    "lodash": "^3.9.3",
+    "multiparty": "^4.1.2",
+    "q": "^1.4.1",
+    "request": "^2.58.0",
+    "archiver": "^0.21.0",
+    "async": "^1.5.2",
+    "cfenv": "1.0.x",
+    "shortid": "*",
+    "watson-developer-cloud": "*",
+    "underscore":"*"
+  },
+  "devDependencies": {
+    "jasmine-node": "^1.14.5",
+    "supervisor": "^0.6.0"
+  }
+}

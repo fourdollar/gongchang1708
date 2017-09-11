@@ -1,0 +1,17 @@
+{
+  "id" : "00002",
+  "name": "Kohichiro Nishiue",
+	"work_amount": [
+		{"id": "A","name": "CPU","timer":"20"},
+		{"id": "B","name": "MEM","timer":"19"},
+    {"id": "C","name": "MEM_C","timer":"7"},
+		{"id": "D","name": "CARD","timer":"25"},
+    {"id": "E","name": "CPU_C","timer":"6"},
+    {"id": "F","name": "HDD","timer":"10"},
+		{"id": "G","name": "POWER","timer":"9"},
+    {"id": "H","name": "FAN","timer":"18"},
+		{"id": "I","name": "COVER","timer":"18"},
+    {"id": "neg","name":"NO_WORK","timer":"5"},
+    {"id": "whole","name":"WHOLE","timer":"137"}
+	]
+}

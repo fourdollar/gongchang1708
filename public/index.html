@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>Watson Demo</title>
+
+  <!-- Bootstrap -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h3>Video Test:</h3>
+        <div>
+          <input type="file" id="input"  class="btn btn-info" accept="video/*">
+          Video:
+          <button id="btnPlay" class="btn btn-success">play</button>
+          <button id="btnPause" class="btn btn-danger">pause</button>
+        </div>
+      </div>
+    </div>
+    <div class="row" id="camera-row">
+      <div class="col-md-12">
+        <!-- 動画 -->
+        <video id="dispVideo" width="320" height="180"></video>
+        <!-- Canvus -->
+        <canvas id="cv" width="320" height="180"></canvas>
+      </div>
+    </div>
+    <div class="box col-lg-10">
+      <canvas id="lineChart" height="200" width="800"></canvas>
+    </div>
+    <div class="box col-lg-2">
+      <!--凡例箇所 -->
+      <div id="chart_legend"></div>
+    </div>
+    <div class="row">
+      Dialog:<div id="dialogComment" class="col-lg-12"></div>
+    </div>
+    <div class="row">
+      Image Count:<div id="ncnt" class="col-lg-12"></div>
+    </div>
+    <!-- テーブル  ================================================== -->
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="bs-component">
+          <table id="image_summary" class="table table-striped table-hover ">
+            <thead id="image_summary_head"></thead>
+            <tbody id="image_summary_body"></tbody>
+          </table>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <canvas id="hover" width="320" height="180"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <style>
+  th,td {width: 180px;}
+  </style>
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.tbodyscroll.js"></script>
+  <script>
+  var n_cnt = 0;
+  mp4_file = "";
+  var images = [];
+  var watson_vr_results = [];
+  var drag;
+  var image_hover = document.getElementById("hover");
+  var hover_content = image_hover.getContext("2d");
+
+  document.getElementById("image_summary_head").innerHTML = "<tr><th>Negative</th><th>Image</th><th>Result</th></tr>";
+
+  // カメラのキャプチャー
+  function capCamera() {
+
+    var video = document.getElementById("dispVideo");
+    var localStream = null;
+    video.src = mp4_file;
+    navigator.getUserMedia({
+      video: {
+        optional: [
+          {
+            sourceId: document.getElementById('cameras').value
+          }
+        ]
+      }
+    },
+    // カメラのキャプチャーに成功した場合
+    function(stream) {
+      console.log(stream);
+      video.src = $('#mp4_file');
+    },
+    // カメラのキャプチャーに失敗した場合
+    function(err) {
+      console.log(err);
+    });
+  }
+
+  // キャンバスにコピー
+  function video2Cvs() {
+    // キャンバスの作成
+    var cvs = document.getElementById("cv");
+    var ctx = cvs.getContext("2d");
+    // Videoの取得
+    var vle = document.getElementById("dispVideo");
+    // canvasの幅と高さを動画の幅高さに設定
+    cvs.width = vle.width;
+    cvs.height = vle.height;
+
+    // canvasに動画のフレームを描画
+    ctx.drawImage(vle, 0, 0, cvs.width, cvs.height);
+
+    var base64 = cvs.toDataURL('image/jpeg', 1.0);
+    var image = new Image(80, 45);
+    image.src = base64;
+    image.id = "image" + n_cnt;
+    var data = {
+      image: base64.replace(/^.*,/, '')
+    };
+    images.push(base64);
+
+    var newRow = $("#image_summary_body").get(0).insertRow();
+    // 新しい行にセルを作っていく
+    var newCell = newRow.insertCell();
+    newCell.appendChild(image);
+    $("#image" + n_cnt).hover(function(){
+      hover_content.drawImage(this, 0, 0, image_hover.width, image_hover.height);
+    }, function(){
+      hover_content.fillStyle = 'rgb(255,255,255)';
+      hover_content.fillRect(0, 0, image_hover.width, image_hover.height);
+    });
+    var newCell = newRow.insertCell();
+    newCell.innerHTML = "<div id='photo_div" + n_cnt + "'>";
+
+    classifyImage(n_cnt);
+    $("#ncnt").text(n_cnt++);
+  }
+
+  function classifyImage(i) {
+    var data = {
+      // classifierids : classifier_ids,
+      image: images[i].replace(/^.*,/, ''),
+      timer: i
+    };
+    $.post("/api/v0/factory/classifyImage", data, function(response) {
+      console.log(response);
+      var timer = response.timer;
+
+      if (response.watson_vr) {
+        $('#photo_div'+timer).get(0).innerHTML += 'VR result:' + JSON.stringify(response.watson_vr);
+        watson_vr_results.push({
+          timer: timer,
+          classes: response.watson_vr
+        })
+      }
+    });
+  }
+
+  function analyzeWork(finished) {
+    // console.log(watson_vr_results);
+    var data = {
+      finished: finished,
+      history: watson_vr_results
+    }
+    console.log('analyzeWork Call');
+    console.log(data);
+    console.log(JSON.stringify(data));
+    $.post("/api/v0/factory/analyzeWork", data, function(response) {
+      console.log(response);
+      displayLineChart(response.history);
+      dialogComment(response.dialog_comment);
+    });
+  }
+
+  function dialogComment(dialog_comment_temp) {
+    $('#dialogComment').html(JSON.stringify(dialog_comment_temp));
+  }
+
+  function displayLineChart(history_data) {
+    var chart_fillColor = [
+      "rgba(0,185,0,0.5)",
+      "rgba(0,0,206,0.5)",
+      "rgba(131,0,0,0.5)",
+      "rgba(0,185,206,0.5)",
+      "rgba(246,0,124,0.5)",
+      "rgba(0,133,124,0.5)",
+      "rgba(206,195,0,0.5)",
+      "rgba(206,0,200,0.5)",
+      "rgba(0,195,200,0.5)",
+      "rgba(206,195,200,0.5)"
+    ];
+    var chart_strokeColor = [
+      "rgba(0,185,0,0.5)",
+      "rgba(0,0,206,0.5)",
+      "rgba(131,0,0,0.5)",
+      "rgba(0,185,206,0.5)",
+      "rgba(246,0,124,0.5)",
+      "rgba(0,133,124,0.5)",
+      "rgba(206,195,0,0.5)",
+      "rgba(206,0,200,0.5)",
+      "rgba(0,195,200,0.5)",
+      "rgba(206,195,200,0.5)"
+    ];
+    var chart_labels = _.map(history_data, function(data_temp) {
+      return data_temp.timer;
+    });
+    var chart_datasets_labels = _.uniq(_.map(history_data, function(data_temp) {return data_temp.class}));
+    var chart_datasets = [];
+    for (var i=0;i<chart_datasets_labels.length;i++) {
+      chart_datasets.push({
+        label: chart_datasets_labels[i],
+        fillColor: chart_fillColor[i],
+        strokeColor: chart_strokeColor[i],
+        data: _.map(history_data, function(data_temp) {return (data_temp.class == chart_datasets_labels[i]) ? Number(data_temp.score) : 0 })
+      })
+    }
+    console.log(chart_datasets);
+
+    var chart_data = {
+      labels: chart_labels,
+      datasets: chart_datasets
+    };
+
+    var chart_ctx = document.getElementById("lineChart").getContext("2d");
+    var options = {
+      animation : false,
+      //凡例
+      legendTemplate : "<% for (var i=0; i<datasets.length; i++){%><span style=\"background-color:<%=datasets[i].strokeColor%>\">&nbsp;&nbsp;&nbsp;</span>&nbsp;<%if(datasets[i].label){%><%=datasets[i].label%><%}%><br><%}%>"
+    };
+    if (chart_datasets_labels.length > 0) {
+      var lineChart = new Chart(chart_ctx).Line(chart_data, options);
+      $('#chart_legend').html(lineChart.generateLegend());
+    }
+  }
+
+  (function(win, doc){
+
+    var URL = win.URL || win.webkitURL,
+    input = doc.querySelector('#input'),
+    video = doc.querySelector('#dispVideo'),
+    btnPlay = doc.querySelector('#btnPlay'),
+    btnPause = doc.querySelector('#btnPause');
+
+    input.onchange = function(){
+      if(this.files && this.files.length){
+        tryVideo( this.files[0] );
+      }
+    };
+
+    btnPlay.onclick = playVideo;
+    btnPause.onclick = pauseVideo;
+
+    function tryVideo(file){
+      video.src = URL.createObjectURL(file);
+    }
+
+    function playVideo(){
+      video.play();
+      // X秒毎にキャプチャを実施
+      video_timer = setInterval('video2Cvs()',1000);
+      analyze_timer = setInterval('analyzeWork(false)',3000);
+      // Video終了後に、停止処理
+      video.addEventListener("ended", function(){
+        pauseVideo();
+        analyzeWork(true);
+        console.log("pauseVideo()");
+      }, false);
+
+    }
+
+    // 停止処理
+    function pauseVideo(){
+      clearInterval(video_timer);
+      clearInterval(analyze_timer);
+      video.pause();
+    }
+
+  })(window, document);
+
+  //イベント登録用関数
+  function addEvent(e, type, handler){
+    if (/*@cc_on!@*/false) {
+      //IE用
+      e.attachEvent('on' + type, handler);
+    }
+    else {
+      //Firefox, Opera, Safari用
+      e.addEventListener(type, handler, false);
+    }
+  }
+
+  addEvent(window,'mouseup', function(event){drag = false});
+
+  $(document).ready(function() {
+    $('#image_summary').tbodyScroll({
+      thead_height:   '30px',
+      tbody_height:   '500px',
+      tfoot_height:   '30px'
+    });
+  });
+
+
+
+  </script>
+</body>
+
+</html>

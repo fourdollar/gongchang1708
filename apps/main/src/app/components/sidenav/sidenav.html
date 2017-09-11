@@ -1,0 +1,24 @@
+<md-sidenav md-component-id="left" md-is-locked-open="true"
+ class="md-sidenav-left md-whiteframe-z2">
+    <header class="nav-header">
+		<img class="user-avatar" ng-src="assets/faces/{{user.face}}" ng-click="toggleMode()"/>
+		<md-tooltip md-direction="top">
+		   Click to change mode (dashboard - assessment) for demo.
+		</md-tooltip>
+		<div layout="column" class="user-identifier" layout-align="center center">
+			{{user.id}}
+		</div>
+	</header>
+	<md-content flex  style="max-height:100%;background:#85CEFF">
+		<md-menu-item flex layout="row" ng-show="state.name=='main.dashboard'">
+			<md-button ui-sref="main.dashboard" ui-sref-active="active">
+				<md-icon class="material-icons md-light md-48">dashboard</md-icon>
+			</md-button>
+		</md-menu-item>
+		<md-menu-item flex layout="row" ng-show="state.name=='main.assessment'">
+			<md-button ui-sref="main.assessment" ui-sref-active="active">
+				<md-icon class="material-icons md-light md-48">assessment</md-icon>
+			</md-button>
+		</md-menu-item>
+	</md-content>
+</md-sidenav>

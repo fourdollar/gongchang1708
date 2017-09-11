@@ -1,0 +1,72 @@
+{
+	"id": "mariko_nakajo",
+	"name": "Mariko Nakajo",
+	"summary": "作業時間全体は標準よりも早いです。標準の作業時間の内訳は以下のようになっています。",
+	"description": "標準と比べて、メモリとりつけ作業は不得意のようです。1.2倍の時間を要しています。現在、当作業員が作業しているラインの稼働率は80% です。",
+	"data": {
+		"columns": [
+			{
+				"id": "A",
+				"name": "CPU"
+			},
+			{
+				"id": "B",
+				"name": "MEM"
+			},
+			{
+				"id": "C",
+				"name": "CARD"
+			},
+			{
+				"id": "D",
+				"name": "POWER"
+			},
+			{
+				"id": "E",
+				"name": "HDD"
+			},
+			{
+				"id": "F",
+				"name": "COVER"
+			},
+			{
+				"id": "G",
+				"name": "CPU_C"
+			},
+			{
+				"id": "H",
+				"name": "MEM_C"
+			}
+		],
+		"data": [
+			{
+				"name": "standard",
+				"type": "bar",
+				"data": [
+					100,
+					90,
+					30,
+					20,
+					30,
+					40,
+					30,
+					20
+				]
+			},
+			{
+				"name": "my",
+				"type": "line",
+				"data": [
+					80,
+					50,
+					40,
+					50,
+					35,
+					30,
+					40,
+					30
+				]
+			}
+		]
+	}
+}

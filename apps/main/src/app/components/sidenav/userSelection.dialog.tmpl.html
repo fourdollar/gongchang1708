@@ -1,0 +1,23 @@
+<md-dialog class="user-selection-dialog" aria-label="ユーザー選択" ng-cloak>
+  <form>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h3>ユーザー選択</h3>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+          <md-icon class="material-icons md-light md-48" aria-label="Close dialog">clear</md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+      <div class="md-dialog-content">
+		  <div ng-repeat="user in users">
+              <img class="user-avatar" ng-src="assets/faces/{{user.face}}" ng-click="answer(user)"/>
+	  		  <div layout="column" class="user-identifier" layout-align="center center">
+	  			  {{user.name}}
+	  		  </div>
+		  </div>
+      </div>
+    </md-dialog-content>
+  </form>
+</md-dialog>

@@ -1,0 +1,489 @@
+{
+	"data": [
+		{
+			"timer": 1,
+			"class": "cpu",
+			"score": 0.58524
+		},
+		{
+			"timer": 2,
+			"class": "cpu",
+			"score": 0.957157
+		},
+		{
+			"timer": 3,
+			"class": "cpu",
+			"score": 0.954769
+		},
+		{
+			"timer": 4,
+			"class": "cpu",
+			"score": 0.957576
+		},
+		{
+			"timer": 5,
+			"class": "cpu",
+			"score": 0.952271
+		},
+		{
+			"timer": 6,
+			"class": "mem_cover",
+			"score": 0.973102
+		},
+		{
+			"timer": 7,
+			"class": "mem_cover",
+			"score": 0.963774
+		},
+		{
+			"timer": 8,
+			"class": "cpu",
+			"score": 0.958179
+		},
+		{
+			"timer": 9,
+			"class": "cpu",
+			"score": 0.964748
+		},
+		{
+			"timer": 10,
+			"class": "cpu",
+			"score": 0.952401
+		},
+		{
+			"timer": 11,
+			"class": "mem_cover",
+			"score": 0.903702
+		},
+		{
+			"timer": 12,
+			"class": "mem_cover",
+			"score": 0.890617
+		},
+		{
+			"timer": 13,
+			"class": "mem_cover",
+			"score": 0.954824
+		},
+		{
+			"timer": 14,
+			"class": "mem_cover",
+			"score": 0.944278
+		},
+		{
+			"timer": 15,
+			"class": "mem_cover",
+			"score": 0.573305
+		},
+		{
+			"timer": 17,
+			"class": "cpu",
+			"score": 0.948953
+		},
+		{
+			"timer": 19,
+			"class": "cpu",
+			"score": 0.952936
+		},
+		{
+			"timer": 21,
+			"class": "mem",
+			"score": 0.88178
+		},
+		{
+			"timer": 22,
+			"class": "mem",
+			"score": 0.934627
+		},
+		{
+			"timer": 23,
+			"class": "mem",
+			"score": 0.974505
+		},
+		{
+			"timer": 24,
+			"class": "mem",
+			"score": 0.974817
+		},
+		{
+			"timer": 25,
+			"class": "mem",
+			"score": 0.967788
+		},
+		{
+			"timer": 26,
+			"class": "mem",
+			"score": 0.971286
+		},
+		{
+			"timer": 27,
+			"class": "mem",
+			"score": 0.545934
+		},
+		{
+			"timer": 28,
+			"class": "mem",
+			"score": 0.974616
+		},
+		{
+			"timer": 29,
+			"class": "mem",
+			"score": 0.953779
+		},
+		{
+			"timer": 30,
+			"class": "mem",
+			"score": 0.967984
+		},
+		{
+			"timer": 31,
+			"class": "mem",
+			"score": 0.965
+		},
+		{
+			"timer": 32,
+			"class": "mem",
+			"score": 0.97346
+		},
+		{
+			"timer": 33,
+			"class": "mem",
+			"score": 0.969408
+		},
+		{
+			"timer": 34,
+			"class": "mem_cover",
+			"score": 0.967543
+		},
+		{
+			"timer": 35,
+			"class": "mem_cover",
+			"score": 0.981342
+		},
+		{
+			"timer": 36,
+			"class": "mem_cover",
+			"score": 0.954178
+		},
+		{
+			"timer": 37,
+			"class": "mem_cover",
+			"score": 0.98135
+		},
+		{
+			"timer": 38,
+			"class": "card",
+			"score": 0.982961
+		},
+		{
+			"timer": 39,
+			"class": "card",
+			"score": 0.978824
+		},
+		{
+			"timer": 41,
+			"class": "cpu_cover",
+			"score": 0.983553
+		},
+		{
+			"timer": 42,
+			"class": "cpu_cover",
+			"score": 0.972476
+		},
+		{
+			"timer": 43,
+			"class": "cpu_cover",
+			"score": 0.98359
+		},
+		{
+			"timer": 44,
+			"class": "cpu_cover",
+			"score": 0.98358
+		},
+		{
+			"timer": 45,
+			"class": "cpu_cover",
+			"score": 0.983569
+		},
+		{
+			"timer": 46,
+			"class": "cpu_cover",
+			"score": 0.98281
+		},
+		{
+			"timer": 47,
+			"class": "cpu_cover",
+			"score": 0.865054
+		},
+		{
+			"timer": 48,
+			"class": "card",
+			"score": 0.771819
+		},
+		{
+			"timer": 49,
+			"class": "card",
+			"score": 0
+		},
+		{
+			"timer": 50,
+			"class": "card",
+			"score": 0.924106
+		},
+		{
+			"timer": 51,
+			"class": "card",
+			"score": 0.991563
+		},
+		{
+			"timer": 52,
+			"class": "card",
+			"score": 0.991653
+		},
+		{
+			"timer": 53,
+			"class": "card",
+			"score": 0.991979
+		},
+		{
+			"timer": 54,
+			"class": "card",
+			"score": 0.992368
+		},
+		{
+			"timer": 55,
+			"class": "card",
+			"score": 0.992571
+		},
+		{
+			"timer": 56,
+			"class": "card",
+			"score": 0.991838
+		},
+		{
+			"timer": 57,
+			"class": "card",
+			"score": 0.991537
+		},
+		{
+			"timer": 58,
+			"class": "card",
+			"score": 0.992432
+		},
+		{
+			"timer": 59,
+			"class": "card",
+			"score": 0.992719
+		},
+		{
+			"timer": 60,
+			"class": "card",
+			"score": 0.992849
+		},
+		{
+			"timer": 61,
+			"class": "card",
+			"score": 0.992128
+		},
+		{
+			"timer": 62,
+			"class": "power",
+			"score": 0.990412
+		},
+		{
+			"timer": 63,
+			"class": "power",
+			"score": 0.867101
+		},
+		{
+			"timer": 64,
+			"class": "power",
+			"score": 0.990688
+		},
+		{
+			"timer": 65,
+			"class": "power",
+			"score": 0.990625
+		},
+		{
+			"timer": 66,
+			"class": "power",
+			"score": 0.990686
+		},
+		{
+			"timer": 67,
+			"class": "power",
+			"score": 0.990505
+		},
+		{
+			"timer": 70,
+			"class": "fan",
+			"score": 0.992054
+		},
+		{
+			"timer": 71,
+			"class": "fan",
+			"score": 0.991269
+		},
+		{
+			"timer": 72,
+			"class": "fan",
+			"score": 0.990029
+		},
+		{
+			"timer": 73,
+			"class": "fan",
+			"score": 0.992038
+		},
+		{
+			"timer": 74,
+			"class": "fan",
+			"score": 0.991724
+		},
+		{
+			"timer": 75,
+			"class": "fan",
+			"score": 0.905394
+		},
+		{
+			"timer": 76,
+			"class": "fan",
+			"score": 0.984946
+		},
+		{
+			"timer": 77,
+			"class": "fan",
+			"score": 0.988524
+		},
+		{
+			"timer": 78,
+			"class": "fan",
+			"score": 0.990639
+		},
+		{
+			"timer": 79,
+			"class": "fan",
+			"score": 0.962992
+		},
+		{
+			"timer": 80,
+			"class": "fan",
+			"score": 0.991327
+		},
+		{
+			"timer": 81,
+			"class": "fan",
+			"score": 0.981068
+		},
+		{
+			"timer": 82,
+			"class": "fan",
+			"score": 0.95464
+		},
+		{
+			"timer": 83,
+			"class": "fan",
+			"score": 0.988883
+		},
+		{
+			"timer": 84,
+			"class": "fan",
+			"score": 0.987299
+		},
+		{
+			"timer": 85,
+			"class": "fan",
+			"score": 0.99061
+		},
+		{
+			"timer": 86,
+			"class": "hdd",
+			"score": 0.933103
+		},
+		{
+			"timer": 87,
+			"class": "hdd",
+			"score": 0.99511
+		},
+		{
+			"timer": 88,
+			"class": "hdd",
+			"score": 0.995254
+		},
+		{
+			"timer": 89,
+			"class": "hdd",
+			"score": 0.995317
+		},
+		{
+			"timer": 90,
+			"class": "hdd",
+			"score": 0.995326
+		},
+		{
+			"timer": 91,
+			"class": "hdd",
+			"score": 0.995389
+		},
+		{
+			"timer": 92,
+			"class": "hdd",
+			"score": 0.995141
+		},
+		{
+			"timer": 93,
+			"class": "hdd",
+			"score": 0.995253
+		},
+		{
+			"timer": 94,
+			"class": "hdd",
+			"score": 0.995202
+		},
+		{
+			"timer": 95,
+			"class": "hdd",
+			"score": 0.994898
+		},
+		{
+			"timer": 96,
+			"class": "hdd",
+			"score": 0.995121
+		},
+		{
+			"timer": 98,
+			"class": "cover",
+			"score": 0.998007
+		},
+		{
+			"timer": 99,
+			"class": "cover",
+			"score": 0.998025
+		},
+		{
+			"timer": 100,
+			"class": "cover",
+			"score": 0.99803
+		},
+		{
+			"timer": 101,
+			"class": "cover",
+			"score": 0.998002
+		},
+		{
+			"timer": 102,
+			"class": "cover",
+			"score": 0.997989
+		},
+		{
+			"timer": 103,
+			"class": "cover",
+			"score": 0.998036
+		},
+		{
+			"timer": 104,
+			"class": "cover",
+			"score": 0.998033
+		}
+	]
+}

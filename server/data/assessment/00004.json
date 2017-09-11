@@ -1,0 +1,17 @@
+{
+  "id":"00004",
+  "name": "Chihiro Matsumoto",
+	"work_amount": [
+    {"id": "A","name": "CPU","timer":"29"},
+		{"id": "B","name": "MEM","timer":"18"},
+    {"id": "C","name": "MEM_C","timer":"11"},
+		{"id": "D","name": "CARD","timer":"25"},
+    {"id": "E","name": "CPU_C","timer":"10"},
+    {"id": "F","name": "HDD","timer":"10"},
+		{"id": "G","name": "POWER","timer":"10"},
+    {"id": "H","name": "FAN","timer":"25"},
+    {"id": "I","name": "COVER","timer":"35"},
+    {"id": "neg","name":"NO_WORK","timer":"15"},
+    {"id": "whole","name":"WHOLE","timer":"188"}
+	]
+}

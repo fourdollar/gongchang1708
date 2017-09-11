@@ -1,0 +1,43 @@
+<md-card>
+    <md-card-content>
+	  FACTORY NOW
+	  <div class="factory-now-order-control-m" hide-gt-sm>
+	   <md-icon class="material-icons md-light">sort</md-icon>
+		   <md-input-container flex-gt-sm>
+		      <label>Order</label>
+		      <md-select ng-model="factorynow.order">
+		          <md-option ng-repeat="order in orders" value="{{order.key}}">
+		              By {{order.key}}
+		          </md-option>
+		      </md-select>
+	       </md-input-container>
+	   </div>
+	   <div class="factory-now-members">
+		   <div ng-show="vm.loading">
+			   <md-progress-circular ng-disabled="!vm.analyzing" md-diameter="96" md-mode='indeterminate'></md-progress-circular>
+		   </div>
+		   <div ng-hide="vm.loading">
+			   <div class="member-data" ng-repeat="member in factorynow.members" 
+			   ng-mousedown="select($index)" ng-class="{'selected':isSelected($index)}">
+				   <div>
+					   <img class="user-avatar" ng-src="assets/faces/{{member.face}}"/>
+					   <md-tooltip md-direction="top">{{member.name}}</md-tooltip><br/>
+					   <span class="initials">{{member.initials}}</span><br/>
+					   <span>{{member.progress}} / {{member.total}} ({{(member.progress/member.total).toFixed(2)}})</span>
+				   </div>
+			   </div>
+		   </div>
+	  </div>
+	  <div class="factory-now-order-control" hide-sm hide-xs>
+		  <md-icon class="material-icons md-light">sort</md-icon>
+		  <md-input-container flex-gt-sm>
+		      <label>Order</label>
+		      <md-select ng-model="factorynow.order">
+		          <md-option ng-repeat="order in orders" value="{{order.key}}">
+		              By {{order.key}}
+		          </md-option>
+		      </md-select>
+	       </md-input-container>
+	   </div>
+	</md-card-content>
+</md-card>

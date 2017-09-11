@@ -1,0 +1,13 @@
+<div class="progress-list-area">
+	<md-card>
+	    <md-card-content>
+				<div ng-repeat="process in vm.pl">
+					<div class="processLabel processId">{{process.id}}</div>
+					<img src="./assets/processes/{{process.img}}">
+					<div class="processLabel processName">{{process.name}}</div>
+						    <work-amount-chart selector="work-amount" cn="{{process.class}}" data="data" columns="vm.pl" pattern="vm.pattern" selected="vm.selected"></work-amount-chart>	
+					<div class="processLabel processAmount">{{data[vm.columnArr.indexOf(process.class)].amount}}s</div>
+				</div>
+		</md-card-content>
+	</md-card>
+</div>

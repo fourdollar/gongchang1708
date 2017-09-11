@@ -1,0 +1,37 @@
+.acme-navbar-text{
+  color: white;
+}
+
+a {
+  color: black;
+}
+
+h1 {
+  font-size: 2em;
+  margin: 0;
+  line-height: 1.25em;
+}
+
+a:hover, a:focus {
+  color: greenyellow;
+}
+
+md-toolbar {
+    padding-right: 5px;
+	min-height: 46px;
+	
+	.page-title {
+		position: absolute;
+		margin-top: 10px;
+		margin-left: 10px;
+		left: 1px;
+	}
+	span.nowtime {
+	    position: relative;
+	    top: 2px;
+	}
+	
+	span.hidestr {
+		opacity: 0;
+	}
+}

@@ -1,0 +1,28 @@
+.assessment-content {
+	md-card {
+	    border: 0px solid #95989A;
+	    border-radius: 0px;
+	    background: #132C5D;
+	    color: #24C5E4;
+	}
+	
+	cogf-assessment-summary md-card, cogf-factory-now md-card {
+		min-height: 155px;
+	}
+	cogf-pattern-summary md-card, cogf-person-analyzed-summary md-card {
+		min-height: 500px;
+	}
+	
+	
+	md-card-content {
+	    padding: 2px;
+		
+		md-list-item {
+			min-height: 10px;
+			h3 {
+				margin-top: 0px;
+				margin-bottom: 0px;
+			}
+		}
+	}
+}

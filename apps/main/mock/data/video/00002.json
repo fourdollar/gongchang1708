@@ -1,0 +1,11 @@
+﻿[
+				{"name": "good1" ,"filename": "Nishiue_Good1.mp4"	},
+				{"name": "good2" ,"filename": "Nishiue_Good2.mp4"	},
+				{"name": "good3" ,"filename": "Nishiue_Good3.mp4"	},
+				{"name": "CPU,Cover時間がかかる" ,"filename": "Nishiue_Bad(CPU,Cover時間がかかる).mp4"},
+				{"name": "Memory入れ忘れ" ,"filename": "Nishiue_Bad(Memory入れ忘れ).mp4"},
+				{"name": "メモリー場所違い、ファン入れ忘れ" ,"filename": "Nishiue_Bad(メモリー場所違い、ファン入れ忘れ).mp4"},
+				{"name": "作業順番間違い" ,"filename": "Nishiue_Bad(作業順番間違い).mp4"},
+				{"name": "内部カバー入れ忘れで手戻り" ,"filename": "Nishiue_Bad(内部カバー入れ忘れで手戻り).mp4"},
+				{"name": "空白作業の時間帯がある" ,"filename": "Nishiue_Bad(空白作業の時間帯がある).mp4"}
+			]

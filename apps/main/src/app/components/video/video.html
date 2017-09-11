@@ -1,0 +1,13 @@
+<div class="watson-notice-area">
+	<md-card>
+	    <md-card-content>
+			<div class="nj-relative">
+				<div ng-class="(watsonThinking!=0) ? 'nj-show' : 'nj-hide'" class="watsonIcon"><img src="./assets/icons/watson_think_nobg.gif" class="watsonIcon"></div>
+				<div ng-class="(watsonThinking==0) ? 'nj-show' : 'nj-hide'" class="watsonIcon"><img src="./assets/icons/watson_notthink_nobg.gif" class="watsonIcon"></div>
+			<div ng-animate="'animate'" ng-repeat="notice in noticeList"  class="watsonNotice">
+				<div class="noticeTime">{{notice.time}}</div>
+				<div class="">{{notice.message}}</div>
+			</div>
+		</md-card-content>
+	</md-card>
+</div>

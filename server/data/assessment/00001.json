@@ -1,0 +1,17 @@
+{
+  "id" : "00001",
+  "name": "Akifumi Wataya",
+	"work_amount": [
+		{"id": "A","name": "CPU","timer":"18"},
+		{"id": "B","name": "MEM","timer":"27"},
+    {"id": "C","name": "MEM_C","timer":"8"},
+		{"id": "D","name": "CARD","timer":"11"},
+    {"id": "E","name": "CPU_C","timer":"9"},
+    {"id": "F","name": "HDD","timer":"7"},
+		{"id": "G","name": "POWER","timer":"8"},
+		{"id": "H","name": "FAN","timer":"18"},
+    {"id": "I","name": "COVER","timer":"8"},
+		{"id": "neg","name":"NO_WORK","timer":"2"},
+		{"id": "whole","name":"WHOLE","timer":"116"}
+	]
+}

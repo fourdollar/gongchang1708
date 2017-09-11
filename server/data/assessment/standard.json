@@ -1,0 +1,28 @@
+{
+	"standard_work_amount": [
+		{"id": "A","name": "CPU","timer":"18.750"},
+		{"id": "B","name": "MEM","timer":"16.000"},
+		{"id": "C","name": "MEM_C","timer":"4.917"},
+		{"id": "D","name": "CARD","timer":"13.667"},
+		{"id": "E","name": "CPU_C","timer":"8.500"},
+		{"id": "F","name": "HDD","timer":"12.250"},
+		{"id": "G","name": "POWER","timer":"8.833"},
+		{"id": "H","name": "FAN","timer":"20.083"},
+		{"id": "I","name": "COVER","timer":"11.500"},
+		{"id": "neg","name":"NO_WORK","timer":"10.417"},
+		{"id": "whole","name":"WHOLE","timer":"124.917"}
+	],
+  "deviation_work_amount": [
+    {"id": "A","name": "CPU","timer":"4.475"},
+    {"id": "B","name": "MEM","timer":"8.924"},
+		{"id": "C","name": "MEM_C","timer":"2.906"},
+    {"id": "D","name": "CARD","timer":"5.123"},
+		{"id": "E","name": "CPU_C","timer":"8.576"},
+		{"id": "F","name": "HDD","timer":"3.621"},
+    {"id": "G","name": "POWER","timer":"3.010"},
+    {"id": "H","name": "FAN","timer":"7.255"},
+		{"id": "I","name": "COVER","timer":"7.610"},
+    {"id": "neg","name":"NO_WORK","timer":"3.450"},
+    {"id": "whole","name":"WHOLE","timer":"32.408"}
+  ]
+}

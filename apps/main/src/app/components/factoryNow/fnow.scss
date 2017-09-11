@@ -1,0 +1,73 @@
+.factory-now-order-control {
+    position: absolute;
+    right: 10px;
+    padding: 0px;
+    text-align: right;
+    top: 50px;
+}
+.factory-now-order-control, .factory-now-order-control-m {
+	md-icon, label {
+		color: white;
+	}
+	md-select-menu {
+		md-content {
+		    color: rgb(63, 81, 181);
+		}
+		md-option[selected] {
+		    color: rgb(36, 197, 228);
+		}
+	}
+	md-select-value {
+		color: white;
+	}
+	md-placeholder {
+		color: white;
+	}
+	md-select .md-select-value {
+	    border-bottom-color: #BA3842;
+	    border-bottom-width: 2px;
+		border-bottom-style: solid;
+	}
+	md-input-container {
+		margin : 0px;
+	}
+	md-input-container:not(.md-input-invalid).md-input-has-value label {
+	    color: rgba(0,0,0,0);
+	}
+	md-select .md-select-value.md-select-placeholder {
+	    color: rgba(133, 206, 255, 0.43);
+	}
+}
+
+.factory-now-members {
+    position: relative;
+	padding-top: 10px;
+	
+	.member-data {
+		border-bottom-width: 1px;
+		border-bottom-color: rgba(186, 56, 66, 0.44);
+		border-bottom-style: solid;
+		
+		display: inline;
+		div {
+			display:inline-block;
+			text-align :center;
+		}
+		span {
+			font-size: 0.7em;
+		}
+		span.initials {
+			font-weight: bold;
+		}
+	}
+	.member-data.selected {
+		border-bottom-width: 3px;
+		border-bottom-color: #BA3842;
+		border-bottom-style: solid;
+	}
+	img.user-avatar {
+		width: 70px;
+		border-radius: 50%;
+		display: inline;
+	}
+}

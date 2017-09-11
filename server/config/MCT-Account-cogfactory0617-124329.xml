@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dialog xsi:noNamespaceSchemaLocation="WatsonDialogDocument_1.1.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <flow>
+        <folder label="Main">
+            <output>
+                <prompt/>
+                <getUserInput id="getUserInput_200001">
+                    <input>
+                        <grammar>
+                            <item>$ dialog_summary_fast</item>
+                        </grammar>
+                        <output>
+                            <prompt selectionType="RANDOM">
+                                <item>作業時間全体は標準よりも早いです。標準の作業時間の内訳は以下のようになっています。</item>
+                                <item>とても効率の良い作業をしています。標準の作業時間の内訳は以下のようになっています</item>
+                            </prompt>
+                            <goto ref="input_200251"/>
+                        </output>
+                    </input>
+                    <input id="input_200251">
+                        <grammar>
+                            <item>$ dialog_summary_standard</item>
+                        </grammar>
+                        <output>
+                            <prompt selectionType="RANDOM">
+                                <item>作業時間全体は標準的です。標準の作業時間の内訳は以下のようになっています。</item>
+                                <item>標準的な良い作業をしています。標準の作業時間の内訳は以下のようになっています。</item>
+                            </prompt>
+                            <goto ref="input_200252"/>
+                        </output>
+                    </input>
+                    <input id="input_200252">
+                        <grammar>
+                            <item>$ dialog_summary_slow</item>
+                        </grammar>
+                        <output>
+                            <prompt selectionType="RANDOM">
+                                <item>作業時間全体は標準より遅いです。標準の作業時間の内訳は以下のようになっています。</item>
+                                <item>作業が遅いようですので、改善が必要です。標準の作業時間の内訳は以下のようになっています。</item>
+                            </prompt>
+                            <goto ref="input_200002"/>
+                        </output>
+                    </input>
+                    <input id="input_200002">
+                        <grammar>
+                            <item>$ overtime_cpu_only</item>
+                        </grammar>
+                        <cond operator="EQUALS">INITIAL</cond>
+                        <output>
+                            <prompt selectionType="RANDOM">
+                                <item>標準と比べて{overtime_cpu_only_value}秒多く、CPUの作業に時間がかかっています。</item>
+                            </prompt>
+                            <goto ref="input_200225"/>
+                        </output>
+                    </input>
+                    <input id="input_200225">
+                        <grammar>
+                            <item>$ overtime_cover</item>
+                        </grammar>
+                        <output>
+                            <prompt selectionType="RANDOM">
+                                <item>標準と比べて{overtime_cover_value}秒多く、カバーの作業に時間がかかっています。</item>
+                            </prompt>
+                            <goto ref="input_200008"/>
+                        </output>
+                    </input>
+                    <input id="input_200008">
+                        <grammar>
+                            <item>$ overtime_mem_only</item>
+                        </grammar>
+                        <output>
+                            <prompt selectionType="RANDOM">
+                                <item>標準と比べて{overtime_mem_only_value}秒多く、メモリーの作業に時間がかかっています。</item>
+                            </prompt>
+                            <goto ref="input_200009"/>
+                        </output>
+                    </input>
+                    <input id="input_200009">
+                        <grammar>
+                            <item>$ overtime_mem_cover</item>
+                        </grammar>
+                        <output>
+                            <prompt selectionType="RANDOM">
+                                <item>標準と比べて{overtime_mem_cover_value}秒多く、メモリーカバーの作業に時間がかかっています。</item>
+                            </prompt>
+                            <goto ref="input_200010"/>
+                        </output>
+                    </input>
+                    <input id="input_200010">
+                        <grammar>
+                            <item>$ overtime_cpu_cover</item>
+                        </grammar>
+                        <output>
+                            <prompt selectionType="RANDOM">
+                                <item>標準と比べて{overtime_cpu_cover_value}秒多く、CPUカバーの作業に時間がかかっています。</item>
+                            </prompt>
+                            <goto ref="input_200011"/>
+                        </output>
+                    </input>
+                    <input id="input_200011">
+                        <grammar>
+                            <item>$ overtime_fan</item>
+                        </grammar>
+                        <output>
+                            <prompt selectionType="RANDOM">
+                                <item>標準と比べて{overtime_fan_value}秒多く、ファンの作業に時間がかかっています。</item>
+                            </prompt>
+                            <goto ref="input_200012"/>
+                        </output>
+                    </input>
+                    <input id="input_200012">
+                        <grammar>
+                            <item>$ overtime_card</item>
+                        </grammar>
+                        <output>
+                            <prompt selectionType="RANDOM">
+                                <item>標準と比べて{overtime_card_value}秒多く、カードの作業に時間がかかっています。</item>
+                            </prompt>
+                            <goto ref="input_200013"/>
+                        </output>
+                    </input>
+                    <input id="input_200013">
+                        <grammar>
+                            <item>$ overtime_power</item>
+                        </grammar>
+                        <output>
+                            <prompt selectionType="RANDOM">
+                                <item>標準と比べて{overtime_power_value}秒多く、電源の作業に時間がかかっています。</item>
+                            </prompt>
+                            <goto ref="input_200014"/>
+                        </output>
+                    </input>
+                    <input id="input_200014">
+                        <grammar>
+                            <item>$ overtime_hdd</item>
+                        </grammar>
+                        <output>
+                            <prompt selectionType="RANDOM">
+                                <item>標準と比べて{overtime_hdd_value}秒多く、ハードディスクの作業に時間がかかっています。</item>
+                            </prompt>
+                            <goto ref="input_200015"/>
+                        </output>
+                    </input>
+                    <input id="input_200015">
+                        <grammar>
+                            <item>$ overtime_negative</item>
+                        </grammar>
+                        <output>
+                            <prompt selectionType="RANDOM">
+                                <item>{overtime_negative_value}秒ほど、作業していない時間帯がありました。</item>
+                            </prompt>
+                            <goto ref="input_200016"/>
+                        </output>
+                    </input>
+                    <input id="input_200016">
+                        <grammar>
+                            <item>$ missing_mem_cover</item>
+                        </grammar>
+                        <output>
+                            <prompt selectionType="RANDOM">
+                                <item>{
+  "comment_id": "missing_mem_cover",
+  "comment": "警告です。カードを挿入する前に、メモリーカバーを装着してください。"
+}</item>
+                            </prompt>
+                            <goto ref="input_200017"/>
+                        </output>
+                    </input>
+                    <input id="input_200017">
+                        <grammar>
+                            <item>$ missing_fan</item>
+                        </grammar>
+                        <output>
+                            <prompt selectionType="RANDOM">
+                                <item>{
+  "comment_id": "missing_fan",
+  "comment": "警告です。Power Fanを入れ忘れています。"
+}</item>
+                            </prompt>
+                            <goto ref="input_200018"/>
+                        </output>
+                    </input>
+                    <input id="input_200018">
+                        <grammar>
+                            <item>$ missing_mem_only</item>
+                        </grammar>
+                        <output>
+                            <prompt selectionType="RANDOM">
+                                <item>{
+  "comment_id": "missing_mem_only",
+  "comment": "警告です。メモリーを入れ忘れています。"
+}</item>
+                            </prompt>
+                            <goto ref="input_200019"/>
+                        </output>
+                    </input>
+                    <input id="input_200019">
+                        <grammar>
+                            <item>$ finished_comment</item>
+                        </grammar>
+                        <output>
+                            <prompt selectionType="RANDOM">
+                                <item>{
+  "comment_id": "finished_comment",
+  "comment": "作業は無事に完了です。　お疲れ様でした。"
+}</item>
+                            </prompt>
+                        </output>
+                    </input>
+                    <input>
+                        <grammar>
+                            <item>$ no_comment</item>
+                        </grammar>
+                        <output>
+                            <prompt selectionType="RANDOM">
+                                <item>{
+  "comment_id": "no_comment",
+  "comment": "作業は順調です。"
+}</item>
+                            </prompt>
+                        </output>
+                    </input>
+                </getUserInput>
+            </output>
+            <default>
+                <goto ref="getUserInput_200001"/>
+            </default>
+        </folder>
+        <folder label="Library">
+            <folder label="Storage"/>
+        </folder>
+        <folder label="Global"/>
+        <folder label="Concepts"/>
+    </flow>
+    <constants>
+        <var_folder name="Home">
+            <var_folder name="General" type="CONST"/>
+        </var_folder>
+    </constants>
+    <variables>
+        <var_folder name="Home">
+            <var name="overtime_cpu_only_value" type="TEXT" initValue="10"/>
+            <var name="overtime_mem_only_value" type="TEXT" initValue="10"/>
+            <var name="overtime_mem_cover_value" type="TEXT" initValue="10"/>
+            <var name="overtime_cpu_cover_value" type="TEXT" initValue="10"/>
+            <var name="overtime_fan_value" type="TEXT" initValue="10"/>
+            <var name="overtime_card_value" type="TEXT" initValue="10"/>
+            <var name="overtime_power_value" type="TEXT" initValue="10"/>
+            <var name="overtime_hdd_value" type="TEXT" initValue="10"/>
+            <var name="overtime_negative_value" type="TEXT" initValue="10"/>
+            <var name="overtime_cover_value" type="TEXT" initValue="10"/>
+        </var_folder>
+    </variables>
+    <settings>
+        <setting name="AUTOLEARN" type="USER">true</setting>
+        <setting name="LANGUAGE" type="USER">ja-JP</setting>
+        <setting name="RESPONSETIME" type="USER">-2</setting>
+        <setting name="MAXAUTOLEARNITEMS" type="USER">0</setting>
+        <setting name="NUMAUTOSETRELATED" type="USER">0</setting>
+        <setting name="TIMEZONEID" type="USER">Asia/Tokyo</setting>
+        <setting name="AUTOSETRELATEDNODEID" type="USER">0</setting>
+        <setting name="INPUTMASKTYPE" type="USER">0</setting>
+        <setting name="CONCEPTMATCHING" type="USER">0</setting>
+        <setting name="UI_COLOUR">#FFFFFF</setting>
+        <setting name="USE_CONCEPTS">3</setting>
+        <setting name="PARENT_ACCOUNT">ja_JP</setting>
+        <setting name="AL_NONE_LABEL">None of the above</setting>
+        <setting name="DEFAULT_DNR_RETURN_POINT_CANDIDATE">-1</setting>
+        <setting name="ENTITIES_SCOPE">3</setting>
+        <setting name="MULTISENT">0</setting>
+        <setting name="DNR_NODE_ID">-15</setting>
+        <setting name="PLATFORM_VERSION">10.1</setting>
+        <setting name="USE_TRANSLATIONS">2</setting>
+        <setting name="USE_SPELLING_CORRECTIONS">2</setting>
+        <setting name="USE_STOP_WORDS">2</setting>
+        <setting name="USE_AUTOMATIC_STOPWORDS_DETECTION">0</setting>
+        <setting name="USER_LOGGING">2</setting>
+        <setting name="CLS_SEARCH_MODE">0</setting>
+        <setting name="CLS_MODEL">0</setting>
+        <setting name="CLS_ENDPOINT">https://gateway.watsonplatform.net/natural-language-classifier/api</setting>
+        <setting name="CLS_USERNAME">bf1ed8ec-6ed0-4af0-acc5-f831f9c1baec</setting>
+        <setting name="CLS_PASSWORD">fa6OSv7q2Hg0</setting>
+        <setting name="CLS_MODELNAME">3a84cfx63-nlc-16068</setting>
+        <setting name="CLS_ADVANCED_SETTINGS">true</setting>
+        <setting name="CLS_MAXNBEST">3</setting>
+        <setting name="CLS_USE_OFFTOPIC">false</setting>
+    </settings>
+    <specialSettings>
+        <specialSetting label="DNR Join Statement" selectionType="RANDOM">
+            <variations/>
+        </specialSetting>
+        <specialSetting label="AutoLearn Statement" selectionType="RANDOM">
+            <variations>
+                <item>auto learn</item>
+            </variations>
+        </specialSetting>
+    </specialSettings>
+</dialog>

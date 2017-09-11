@@ -1,0 +1,17 @@
+{
+	"id": "00003",
+	"name": "Mariko Nakajo",
+	"work_amount": [
+		{"id": "A","name": "CPU","timer":"28"},
+		{"id": "B","name": "MEM","timer":"18"},
+		{"id": "C","name": "MEM_C","timer":"7"},
+		{"id": "D","name": "CARD","timer":"18"},
+		{"id": "E","name": "CPU_C","timer":"9"},
+		{"id": "F","name": "HDD","timer":"13"},
+		{"id": "G","name": "POWER","timer":"9"},
+		{"id": "H","name": "FAN","timer":"29"},
+		{"id": "I","name": "COVER","timer":"25"},
+    {"id": "neg","name":"NO_WORK","timer":"10"},
+    {"id": "whole","name":"WHOLE","timer":"166"}
+	]
+}

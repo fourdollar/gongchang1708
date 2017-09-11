@@ -1,0 +1,17 @@
+{
+	"id": "00005",
+	"name": "Motokazu Nishimura",
+	"work_amount": [
+		{"id": "A","name": "CPU","timer":"10"},
+		{"id": "B","name": "MEM","timer":"13"},
+		{"id": "C","name": "MEM_C","timer":"6"},
+		{"id": "D","name": "CARD","timer":"9"},
+		{"id": "E","name": "CPU_C","timer":"5"},
+		{"id": "F","name": "HDD","timer":"11"},
+		{"id": "G","name": "POWER","timer":"9"},
+		{"id": "H","name": "FAN","timer":"12"},
+		{"id": "I","name": "COVER","timer":"10"},
+    {"id": "neg","name":"NO_WORK","timer":"6"},
+    {"id": "whole","name":"WHOLE","timer":"91"}
+	]
+}

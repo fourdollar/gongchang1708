@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>Watson Demo</title>
+
+  <!-- Bootstrap -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h3>assesment Test:</h3>
+        <button class="btn btn-primary" onclick="getmembers()">getmembers</button>
+        <button class="btn btn-secondary" onclick="assessment()">assessment</button>
+        <button class="btn btn-success" onclick="getvideos()">getVideos</button>
+        <button class="btn btn-info" onclick="getworklist()">getworklist</button>
+        <button class="btn btn-warning" onclick="getprogress()">getprogress</button>
+        <button class="btn btn-danger" onclick="sunburstdata()">sunburstdata</button>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div id="result"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.tbodyscroll.js"></script>
+  <script>
+
+  function getmembers() {
+    $.get("/api/v0/factory/getmembers", function(response) {
+      console.log(response);
+      $('#result').get(0).innerHTML = JSON.stringify(response);
+    });
+  }
+
+  function assessment() {
+    $.get("/api/v0/factory/members/00001/assessment", function(response) {
+      console.log(response);
+      $('#result').get(0).innerHTML = JSON.stringify(response);
+    });
+  }
+
+  function getvideos() {
+    $.get("/api/v0/factory/getvideos/00001", function(response) {
+      console.log(response);
+      $('#result').get(0).innerHTML = JSON.stringify(response);
+    });
+  }
+
+  function getworklist() {
+    $.get("/api/v0/factory/getworklist", function(response) {
+      console.log(response);
+      $('#result').get(0).innerHTML = JSON.stringify(response);
+    });
+  }
+
+  function getprogress() {
+    $.get("/api/v0/factory/getprogress", function(response) {
+      console.log(response);
+      $('#result').get(0).innerHTML = JSON.stringify(response);
+    });
+  }
+
+  function sunburstdata() {
+    $.get("/api/v0/factory/sunburstdata", function(response) {
+      console.log(response);
+      $('#result').get(0).innerHTML = JSON.stringify(response);
+    });
+  }
+
+
+
+  </script>
+</body>
+
+</html>

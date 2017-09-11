@@ -1,0 +1,19 @@
+<div class="watson-notice-area">
+	<md-card>
+	    <md-card-content>
+			<div class="nj-relative">
+				<div ng-class="(watsonThinking!=0) ? 'nj-show' : 'nj-hide'" class="watsonIcon"><img src="./assets/icons/watson_think_nobg.gif" class="watsonIcon"></div>
+				<div ng-class="(watsonThinking==0) ? 'nj-show' : 'nj-hide'" class="watsonIcon"><img src="./assets/icons/watson_notthink_nobg.gif" class="watsonIcon"></div>
+			<div ng-animate="'animate'" ng-repeat="notice in noticeList track by $index">
+				<div class="watsonNotice" ng-class="($index==0) ? (notice.id=='no_comment') ? 'nj-green-active' : (notice.id=='finished_comment')?  'nj-blue-active':'nj-red-active' : (notice.id=='no_comment') ? 'nj-green' : (notice.id=='finished_comment')?  'nj-blue':'nj-red'">
+<!--($index==0) ? (notice.id=='no_comment') ? 'nj-green-active' : (notice.id=='finished_comment')?  'nj-blue-active':'nj-red-active' : (notice.id=='no_comment') ? 'nj-green' : (notice.id=='finished_comment')?  'nj-blue':'nj-red'-->
+				<div class="noticeTime">{{notice.time}}</div>
+					<div ng-repeat="row in notice.text">
+						<div>{{row}}</div>
+					</div>
+				</div>
+			</div>
+
+		</md-card-content>
+	</md-card>
+</div>

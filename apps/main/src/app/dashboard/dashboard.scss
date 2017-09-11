@@ -1,0 +1,73 @@
+.dashboard-content {
+	color: #24C5E4;
+  position:absolute;
+	height:100%;
+	width:100%;
+	top:0;
+	md-card {
+	    border: 0px solid #95989A;
+	    border-radius: 0px;
+	    background: #132C5D;
+	    color: #24C5E4;
+	}
+
+  cogf-pattern-timeline md-card{
+    min-height: 150px;
+  }
+  cogf-capturing-data md-card{
+    min-height: 220px;
+  }
+  cogf-machine-image md-card {
+    min-height: 300px;
+  }
+cogf-progress-list md-card{
+  margin-top:236px;
+}
+cogf-watson-notice md-card{
+}
+cogf-console-message md-card{
+  margin-top:316px;
+  min-height:150px;
+}
+	
+	md-card-content {
+	    padding: 2px;
+		
+		md-list-item {
+			min-height: 10px;
+			h3 {
+				margin-top: 0px;
+				margin-bottom: 0px;
+			}
+		}
+	}
+
+.content-bottom-left{
+  margin-top: 200px;
+}
+.content-bottom-right{
+  margin-top: 200px;
+  margin-left: 40%;
+}
+.nj-relative{
+  position:relative;
+}
+
+}
+
+.nj-height100pc{
+  height:100%
+}
+.nj-mtopheader{
+  margin-top:46px;
+}
+.nj-layout-wrap{
+    margin-right:20%;
+}
+.nj-fill, cogf-progress-list md-card,cogf-watson-notice md-card,cogf-console-message md-card{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}

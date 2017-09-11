@@ -1,0 +1,29 @@
+bar-chart {
+	.bar-chart {
+	    padding-left: 20px;
+	}
+	svg {
+		g.columns {
+			text.column-text {
+				fill : white;
+			}
+		}
+		g.series-standard {
+			rect {
+				fill : #6EBDFF;
+				opacity: 0.6;
+			}
+		}
+		g.series-my {
+			rect {
+				fill : #64FF80;
+				opacity: 0.6;
+			}
+		}
+		g.legends {
+			text.legend-text {
+				fill : white;
+			}
+		}
+	}
+}

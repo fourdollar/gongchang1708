@@ -1,0 +1,453 @@
+{
+	"name": "patterns",
+	"children": [
+		{
+			"name": "CPU",
+			"label":true,
+			"children": [
+				{
+					"name": "Motokazu Nishimura",
+					"id":"motokazu_nishimura",
+					"children": [
+						{
+							"name": "1464760615985",
+							"size": 3938
+						},
+						{
+							"name": "1464760615986",
+							"size": 3812
+						},
+						{
+							"name": "1464760615988",
+							"size": 743
+						}
+					]
+				},
+				{
+					"name": "Akifumi Wataya",
+					"id" : "akifumi_wataya",
+					"children": [
+						{
+							"name": "1464760615985",
+							"size": 3534
+						},
+						{
+							"name": "1464760615986",
+							"size": 3416
+						}
+					]
+				},
+				{
+					"name": "Kohichiro Nishiue",
+					"id" : "kohichiro_nishiue",
+					"children": [
+						{
+							"name": "1464760615985",
+							"size": 7074
+						},
+						{
+							"name": "1464760615986",
+							"size": 3812
+						},
+						{
+							"name": "1464760615988",
+							"size": 743
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "MEM",
+			"label":true,
+			"children": [
+				{
+					"name": "Motokazu Nishimura",
+					"id":"motokazu_nishimura",
+					"children": [
+						{
+							"name": "1464760615985",
+							"size": 1983
+						},
+						{
+							"name": "1464760615986",
+							"size": 2047
+						},
+						{
+							"name": "1464760615988",
+							"size": 1375
+						}
+					]
+				},
+				{
+					"name": "Akifumi Wataya",
+					"id" : "akifumi_wataya",
+					"children": [
+						{
+							"name": "1464760615985",
+							"size": 1375
+						},
+						{
+							"name": "1464760615986",
+							"size": 1578
+						}
+					]
+				},
+				{
+					"name": "Kohichiro Nishiue",
+					"id" : "kohichiro_nishiue",
+					"children": [
+						{
+							"name": "1464760615985",
+							"size": 704
+						},
+						{
+							"name": "1464760615986",
+							"size": 312
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "CARD",
+			"label":true,
+			"children": [
+				{
+					"name": "Motokazu Nishimura",
+					"id":"motokazu_nishimura",
+					"children": [
+						{
+							"name": "1464760615985",
+							"size": 983
+						},
+						{
+							"name": "1464760615986",
+							"size": 1047
+						},
+						{
+							"name": "1464760615988",
+							"size": 1375
+						}
+					]
+				},
+				{
+					"name": "Akifumi Wataya",
+					"id" : "akifumi_wataya",
+					"children": [
+						{
+							"name": "1464760615985",
+							"size": 721
+						},
+						{
+							"name": "1464760615986",
+							"size": 4294
+						},
+						{
+							"name": "1464760615987",
+							"size": 9800
+						},
+						{
+							"name": "1464760615988",
+							"size": 1314
+						}
+					]
+				},
+				{
+					"name": "Kohichiro Nishiue",
+					"id" : "kohichiro_nishiue",
+					"children": [
+						{
+							"name": "1464760615985",
+							"size": 704
+						},
+						{
+							"name": "1464760615986",
+							"size": 312
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "POWER",
+			"label":true,
+			"children": [
+				{
+					"name": "Motokazu Nishimura",
+					"id":"motokazu_nishimura",
+					"children": [
+						{
+							"name": "1464760615985",
+							"size": 3938
+						},
+						{
+							"name": "1464760615986",
+							"size": 3812
+						},
+						{
+							"name": "1464760615988",
+							"size": 743
+						}
+					]
+				},
+				{
+					"name": "Akifumi Wataya",
+					"id" : "akifumi_wataya",
+					"children": [
+						{
+							"name": "1464760615985",
+							"size": 3534
+						},
+						{
+							"name": "1464760615986",
+							"size": 3416
+						}
+					]
+				},
+				{
+					"name": "Kohichiro Nishiue",
+					"id" : "kohichiro_nishiue",
+					"children": [
+						{
+							"name": "1464760615985",
+							"size": 7074
+						},
+						{
+							"name": "1464760615986",
+							"size": 3812
+						},
+						{
+							"name": "1464760615988",
+							"size": 743
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "HDD",
+			"label":true,
+			"children": [
+				{
+					"name": "Motokazu Nishimura",
+					"id":"motokazu_nishimura",
+					"children": [
+						{
+							"name": "1464760615985",
+							"size": 4938
+						},
+						{
+							"name": "1464760615986",
+							"size": 3812
+						},
+						{
+							"name": "1464760615988",
+							"size": 3343
+						}
+					]
+				},
+				{
+					"name": "Akifumi Wataya",
+					"id" : "akifumi_wataya",
+					"children": [
+						{
+							"name": "1464760615985",
+							"size": 1829
+						},
+						{
+							"name": "1464760615986",
+							"size": 4116
+						}
+					]
+				},
+				{
+					"name": "Kohichiro Nishiue",
+					"id" : "kohichiro_nishiue",
+					"children": [
+						{
+							"name": "1464760615985",
+							"size": 3074
+						},
+						{
+							"name": "1464760615986",
+							"size": 5812
+						},
+						{
+							"name": "1464760615988",
+							"size": 2743
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "COVER",
+			"label":true,
+			"children": [
+				{
+					"name": "Motokazu Nishimura",
+					"id":"motokazu_nishimura",
+					"children": [
+						{
+							"name": "1464760615985",
+							"size": 9983
+						},
+						{
+							"name": "1464760615986",
+							"size": 3812
+						},
+						{
+							"name": "1464760615988",
+							"size": 743
+						}
+					]
+				},
+				{
+					"name": "Akifumi Wataya",
+					"id" : "akifumi_wataya",
+					"children": [
+						{
+							"name": "1464760615985",
+							"size": 2822
+						},
+						{
+							"name": "1464760615986",
+							"size": 3416
+						}
+					]
+				},
+				{
+					"name": "Kohichiro Nishiue",
+					"id" : "kohichiro_nishiue",
+					"children": [
+						{
+							"name": "1464760615985",
+							"size": 10498
+						},
+						{
+							"name": "1464760615986",
+							"size": 319
+						},
+						{
+							"name": "1464760615988",
+							"size": 1336
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "CPU_C",
+			"label":true,
+			"children": [
+				{
+					"name": "Motokazu Nishimura",
+					"id":"motokazu_nishimura",
+					"children": [
+						{
+							"name": "1464760615985",
+							"size": 983
+						},
+						{
+							"name": "1464760615986",
+							"size": 312
+						},
+						{
+							"name": "1464760615988",
+							"size": 743
+						}
+					]
+				},
+				{
+					"name": "Akifumi Wataya",
+					"id" : "akifumi_wataya",
+					"children": [
+						{
+							"name": "1464760615985",
+							"size": 222
+						},
+						{
+							"name": "1464760615986",
+							"size": 341
+						}
+					]
+				},
+				{
+					"name": "Kohichiro Nishiue",
+					"id" : "kohichiro_nishiue",
+					"children": [
+						{
+							"name": "1464760615985",
+							"size": 198
+						},
+						{
+							"name": "1464760615986",
+							"size": 39
+						},
+						{
+							"name": "1464760615988",
+							"size": 136
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "MEM_C",
+			"label":true,
+			"children": [
+				{
+					"name": "Motokazu Nishimura",
+					"id":"motokazu_nishimura",
+					"children": [
+						{
+							"name": "1464760615985",
+							"size": 183
+						},
+						{
+							"name": "1464760615986",
+							"size": 132
+						},
+						{
+							"name": "1464760615988",
+							"size": 74
+						}
+					]
+				},
+				{
+					"name": "Akifumi Wataya",
+					"id" : "akifumi_wataya",
+					"children": [
+						{
+							"name": "1464760615985",
+							"size": 122
+						},
+						{
+							"name": "1464760615986",
+							"size": 34
+						}
+					]
+				},
+				{
+					"name": "Kohichiro Nishiue",
+					"id" : "kohichiro_nishiue",
+					"children": [
+						{
+							"name": "1464760615985",
+							"size": 198
+						},
+						{
+							"name": "1464760615986",
+							"size": 139
+						},
+						{
+							"name": "1464760615988",
+							"size": 36
+						}
+					]
+				}
+			]
+		}
+	]
+}

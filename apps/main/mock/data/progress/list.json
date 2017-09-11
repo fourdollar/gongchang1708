@@ -1,0 +1,90 @@
+[
+		{
+			"id": "A",
+			"name": "CPU",
+			"description": "CPU",
+			"class": "cpu",
+			"img":"cpu.jpg",
+			"showinlist":true
+		},
+		{
+			"id": "B",
+			"name": "MEM",
+			"description": "Memory",
+			"class": "mem",
+			"img":"mem.jpg",
+			"showinlist":true
+		},
+		{
+			"id": "C",
+			"name": "CARD",
+			"description": "Fibre Card",
+			"class": "card",
+			"img":"card.jpg",
+			"showinlist":true
+		},
+		{
+			"id": "D",
+			"name": "POWER",
+			"description": "Power Supply",
+			"class": "power",
+			"img":"power.jpg",
+			"showinlist":true
+		},
+		{
+			"id": "E",
+			"name": "HDD",
+			"description": "Harddisk Drive",
+			"class": "hdd",
+			"img":"hdd.jpg",
+			"showinlist":true
+		},
+		{
+			"id": "F",
+			"name": "COVER",
+			"description": "Machine Cover",
+			"class": "cover",
+			"img":"cover.jpg",
+			"showinlist":true
+		},
+		{
+			"id": "G",
+			"name": "CPU_C",
+			"description": "CPU Cover",
+			"class": "cpu_cover",
+			"img":"cpu_c.jpg",
+			"showinlist":true
+		},
+		{
+			"id": "H",
+			"name": "MEM_C",
+			"description": "Memory Cover",
+			"class": "mem_cover",
+			"img":"mem_c.jpg",
+			"showinlist":true
+		},
+		{
+			"id": "I",
+			"name": "FAN",
+			"description": "Power Fan",
+			"class": "fan",
+			"img":"fan.jpg",
+			"showinlist":true
+		},
+		{
+			"id": "neg",
+			"name": "NEG",
+			"description": "No Work",
+			"class": "negative",
+			"img":"",
+			"showinlist":false
+		},
+		{
+			"id": "whole",
+			"name": "WHOLE",
+			"description": "whole",
+			"class": "whole",
+			"img":"",
+			"showinlist":false
+		}
+	]

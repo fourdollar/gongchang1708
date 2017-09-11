@@ -1,0 +1,63 @@
+{
+	"members": [
+		{
+			"id" : "00001",
+			"name": "Akifumi Wataya",
+			"face": "akifumi_wataya.jpg",
+			"initials": "A.W.",
+			"progress": "140",
+			"total": "150",
+			"video": [
+				{"name": "good1", "description": "Good", "filename": "Wataya_Good1.mp4"},
+				{"name": "bad1", "description": "内部カバー入れ忘れで手戻り" ,"filename": "Wataya_Bad(内部カバー入れ忘れで手戻り).mp4"}
+			]
+		},
+		{
+			"id" : "00002",
+			"name": "Kohichiro Nishiue",
+			"face": "kohichiro_nishiue.jpg",
+			"initials": "K.N.",
+			"progress": "130",
+			"total": "150",
+			"video": [
+				{"name": "good3" ,"description": "Good", "filename": "Nishiue_Good3.mp4"	},
+				{"name": "bad1" ,"description": "CPU,Cover時間がかかる","filename": "Nishiue_Bad(CPU,Cover時間がかかる).mp4"},
+				{"name": "bad2" ,"description": "Memory入れ忘れ" ,"filename": "Nishiue_Bad(Memory入れ忘れ).mp4"}
+			]
+		},
+		{
+			"id": "00003",
+			"name": "Mariko Nakajo",
+			"face": "mariko_nakajo.jpg",
+			"initials": "M.N.",
+			"progress": "111",
+			"total": "150",
+			"video": [
+				{"name": "good2" , "description" : "Good" , "filename": "Nakajo_Good2.mp4"	}
+			]
+		},
+		{
+			"id":"00004",
+			"name": "Chihiro Matsumoto",
+			"face": "chihiro_matsumoto.jpg",
+			"initials": "C.M.",
+			"progress": "111",
+			"total": "150",
+			"video": [
+				{"name": "good1" , "description" : "Good" , "filename": "Matsumoto_Good1.mp4"	}
+			]
+		},
+		{
+			"id":"00005",
+			"name": "Motokazu Nishimura",
+			"face": "motokazu_nishimura.jpg",
+			"initials": "M.N.",
+			"progress": "90",
+			"total": "150",
+			"video": [
+				{"name": "good2" , "description" : "Good" , "filename": "Nishimura_Good2.mp4"	},
+				{"name": "bad1" , "description" : "作業順番間違い" ,"filename": "Nishimura_Bad(作業順番間違い).mp4"}
+			]
+		}
+	]
+}

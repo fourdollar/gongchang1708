@@ -1,0 +1,12 @@
+<md-card>
+    <md-card-content>
+	   <md-list flex>
+	      <md-list-item class="md-1-line" ng-repeat="item in assesmentSummary">
+	        <div class="md-list-item-text" layout="column">
+	            <h3>{{ item.title }}</h3>
+	            <p class="md-secondary">{{ item.value }} <span ng-show="item.unit">({{ item.unit }})</span></p>
+	        </div>
+	      </md-list-item>
+		</md-list>
+	</md-card-content>
+</md-card>

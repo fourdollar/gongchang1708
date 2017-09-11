@@ -1,0 +1,28 @@
+<div class="console-message">
+	<md-card>
+	    <md-card-content>
+		  <md-content>
+		      <md-tabs md-dynamic-height md-border-bottom>
+		        <md-tab label="Console">
+		          <md-content class="md-padding">
+					<div ng-repeat="console in vm.whList track by $index">
+						<div ng-repeat="log in console.text track by $index">
+							<div>{{log.time}} [{{log.timer}}] RECOGNIZED as {{log.class}} - CONFIDENCE:{{log.score}}</div>
+						</div>
+					</div>
+		          </md-content>
+		        </md-tab>
+		        <md-tab label="Message">
+		          <md-content class="md-padding">
+					<div ng-repeat="message in vm.wcList track by $index">
+						<div ng-repeat="log in message.text track by $index">
+						<div>{{message.time}} WATSON> {{log}}</div>
+						</div>
+					</div>
+		          </md-content>
+		        </md-tab>
+		      </md-tabs>
+		    </md-content>
+		</md-card-content>
+	</md-card>
+</div>

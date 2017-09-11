@@ -1,0 +1,35 @@
+<div class="dashboard-content">
+	<div layout="row" class="nj-height100pc">
+		<div flex="80" class="nj-mtopheader">
+			<div layout="row" layout-wrap class="nj-layout-wrap nj-mtopheader nj-fill">
+				<div flex="100">
+					<div class="target-info-area">
+						<cogf-target-info></cogf-target-info>
+					</div>
+					<div class="recognition-pattern-area">
+						<cogf-pattern-timeline wh="workHistory" pl="progressList"></cogf-pattern-timeline>
+					</div>
+				</div>
+				<div flex="40"  class="nj-fill content-bottom-left">
+					<div class="capturing-data">
+						<cogf-capturing-data wh="workHistory" wa="workAmount" wc="watsonComment" selectedMember="selectedMember"></cogf-capturing-data>
+					</div>
+					<div class="progress-list-area">
+						<cogf-progress-list wa="workAmount" pl="progressList"></cogf-progress-list>
+					</div>
+				</div>
+				<div flex="60" class="nj-fill content-bottom-right">
+					<div class="machine-image-area">
+						<cogf-machine-image></cogf-machine-image>
+					</div>
+					<div class="console-message-area">
+						<cogf-console-message wh="workHistory" wc="watsonComment"></cogf-console-message>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div flex="20"  class="nj-relative nj-mtopheader">
+			<cogf-watson-notice wc="watsonComment"></cogf-watson-notice>
+		</div>
+	</div>
+</div>

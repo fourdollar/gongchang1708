@@ -1,0 +1,16 @@
+{
+	"id": "00005",
+	"name": "Motokazu Nishimura",
+	"dialog_summary": "作業時間全体は標準的です。標準の作業時間の内訳は以下のようになっています。",
+	"dialog_detail": "標準と比べて、電源,メモリとりつけ作業は不得意のようです。1.5倍の時間を要しています。同じような作業傾向があり、電源とりつけ作業が得意なのはBさんです。Bさんに教わることで作業効率の向上が見込めるかもしれません。現在、当作業員が作業しているラインの稼働率は90% です。",
+	"work_amount": [
+		{"id": "A","name": "CPU","timer":"10"},
+		{"id": "B","name": "MEM","timer":"20"},
+		{"id": "C","name": "CARD","timer":"10"},
+		{"id": "D","name": "POWER","timer":"20"},
+		{"id": "E","name": "HDD","timer":"15"},
+		{"id": "F","name": "COVER","timer":"20"},
+		{"id": "G","name": "CPU_C","timer":"5"},
+		{"id": "H","name": "MEM_C","timer":"5"}
+	]
+}
