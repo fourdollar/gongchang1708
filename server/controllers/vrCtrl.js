@@ -68,32 +68,36 @@ var watson_vr = function(req, res, imagefile, callback) {
 
 var watson_analyzeWork = function(req, res, callback) {
 	// workHistory SPSSに問い合わせて、仕事の振り分けを確定させる
-	var workHistory = [];
-	var data_for_analytics = [];
-	var work_amount = [];
-	var work_labels = _.map(server_worklist.data, function(data_temp) {return data_temp.class});
+	var workHistory = [];            // Workの履歴を保持する
+	var data_for_analytics = [];     // SPSSの履歴分析の結果
+	var work_amount = [];            // Workの合計時間を保持する
+	var work_labels = _.map(server_worklist.data, function(data_temp) {return data_temp.class});     // Workの種類
 
 	_.each(req.body.history, function(data_temp,index) {
 		var line_array = _.map(work_labels, function(map_data_temp){
 			var find_class = _.find(data_temp.classes,function(find_data_temp){return find_data_temp.class == map_data_temp;});
 			if(find_class == undefined){
 				return 0;
-
 			}else{
 				return find_class.score;
-
 			}
 		});
 		line_array.push(data_temp.timer);
-
 		data_for_analytics.push(line_array);
+
+		// console.log("########################################################");
+		// console.log("watson_analyzeWork:work_labels");
+		// console.log(JSON.stringify(work_labels));
+		// console.log("watson_analyzeWork:line_array");
+		// console.log(JSON.stringify(line_array));
+		// console.log("watson_analyzeWork:data_for_analytics");
+		// console.log(JSON.stringify(data_for_analytics));
+		// console.log("########################################################");
 
 	});
 
-
 	var data_header = work_labels.concat();
 	data_header.push("timer");
-
 
 	var data_for_analytics_table = {
 		"tablename":"result.csv",
@@ -104,8 +108,12 @@ var watson_analyzeWork = function(req, res, callback) {
 	async.waterfall([
 		function(next){ //spssにより画像分類結果の精度を上げる
 			bluemix_services.spss_analyze1(data_for_analytics_table,"classify", function(watson_vr_spss_res){
+				// console.log("########################################################");
+				// console.log("spss_analyze1:data_for_analytics_table");
+				// console.log(JSON.stringify(data_for_analytics_table));
 				// console.log("spss_analyze1:watson_vr_spss_res");
 				// console.log(JSON.stringify(watson_vr_spss_res));
+				// console.log("########################################################");
 				var spss_data = watson_vr_spss_res[0].data;
 				var spss_header = watson_vr_spss_res[0].header;
 
@@ -125,9 +133,13 @@ var watson_analyzeWork = function(req, res, callback) {
 				"header":spss_header,
 				"data":spss_data
 			};
-			// console.log("spss_analyze2:data_for_sum_table");
-			// console.log(JSON.stringify(data_for_sum_table));
 			bluemix_services.spss_analyze2(data_for_sum_table,"sum", function(watson_vr_spss_sum_res) {
+				// console.log("########################################################");
+				// console.log("spss_analyze2:data_for_sum_table");
+				// console.log(JSON.stringify(data_for_sum_table));
+				// console.log("spss_analyze2:watson_vr_spss_sum_res");
+				// console.log(JSON.stringify(watson_vr_spss_sum_res));
+				// console.log("########################################################");
 				var spss_sum_data = watson_vr_spss_sum_res[0].data[0];
 				var spss_sum_header = watson_vr_spss_sum_res[0].header;
 				if (spss_sum_data != undefined){
@@ -142,8 +154,6 @@ var watson_analyzeWork = function(req, res, callback) {
 					if(req.body.finished == true || req.body.finished == "true"){
 						dialog_input += ' finished_comment';
 					}
-					// console.log("spss_analyze2:next(null, dialog_input)");
-					// console.log(JSON.stringify(dialog_input));
 					next(null, dialog_input);
 				}else{
 					if(req.body.finished == true || req.body.finished == "true"){
@@ -155,13 +165,8 @@ var watson_analyzeWork = function(req, res, callback) {
 		},
 		function(dialog_input, next){ //dialogにidを送り、メッセージを取得する
 			if(dialog_input != ""){
-				bluemix_services.dialog_conversation(dialog_input,  function(conversation){
-					var dialog_comment_result = conversation.response;
-					// console.log('dialog_input:');
-					// console.log(dialog_input);
-					// console.log('dialog_comment_result:');
-					// console.log(dialog_comment_result);
-					next(null, dialog_comment_result);
+				bluemix_services.conversation_message({}, dialog_input,  function(conversation_message_result){
+					next(null, conversation_message_result);
 				});
 			}
 		}
@@ -171,9 +176,10 @@ var watson_analyzeWork = function(req, res, callback) {
 			console.log(err);
 		}else{
 			var dialog_comment_return = [];
-			for (var i=0;i<dialog_comment_result.length; i++) {
-				if (dialog_comment_result[i] != '') dialog_comment_return.push(JSON.parse(dialog_comment_result[i]));
-			}
+			dialog_comment_return.push({
+				"comment_id":dialog_comment_result.comment_id,
+				"comment":dialog_comment_result.comment[0]
+			});
 
 			var watson_analyzeWork_res = {
 				finished: req.body.finished,
@@ -185,7 +191,6 @@ var watson_analyzeWork = function(req, res, callback) {
 			console.log(watson_analyzeWork_res);
 			callback(watson_analyzeWork_res);
 		}
-
 	});
 }
 
@@ -201,8 +206,6 @@ module.exports = function() {
 		fs.writeFile(imagefile, req.body.image, 'base64', function(err) {
 			if (err) console.log(err);
 			watson_vr(req, res, imagefile, function(watson_vr_res) {
-				// watson_vr_spss(watson_vr_res,function(watson_vr_spss_res) {
-				// var result_watson_vr_res = (watson_vr_res.images[0].length == 1) && (watson_vr_res.images[0].classifiers[0].length == 1) ? watson_vr_res.images[0].classifiers[0].classes : [];
 				var result_watson_vr_res;
 				if (watson_vr_res && watson_vr_res.images && watson_vr_res.images[0] &&
 					watson_vr_res.images[0].classifiers &&
@@ -210,7 +213,6 @@ module.exports = function() {
 					result_watson_vr_res = watson_vr_res.images[0].classifiers[0].classes;
 					else result_watson_vr_res = [];
 					var classifyImage_result = {
-						// watson_vr_spss: watson_vr_spss_res,
 						watson_vr: result_watson_vr_res,
 						timer: req.body.timer
 					};

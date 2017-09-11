@@ -14,10 +14,10 @@ var app = express();
 
 /* authentication (basic) */
 var basic = auth.basic({
-        realm: "Cognitive Factory"
-    }, function (username, password, callback) { // Custom authentication method.
-        callback(username === "coguser" && password === "GGZxBeMqhiiJMbd7ga");
-    }
+  realm: "Cognitive Factory"
+}, function (username, password, callback) { // Custom authentication method.
+  callback(username === "coguser" && password === "GGZxBeMqhiiJMbd7ga");
+}
 );
 app.use(auth.connect(basic));
 
@@ -39,15 +39,11 @@ app.use(bodyParser.json());
 app.use(require(__dirname + '/server/controllers/root')().getRoute());
 app.use(require(__dirname + '/server/controllers/assessmentCtrl')().getRoute());
 app.use(require(__dirname + '/server/controllers/vrCtrl')().getRoute());
-//
-//
 
 // The IP address of the Cloud Foundry DEA (Droplet Execution Agent) that hosts this application:
 var host = (process.env.VCAP_APP_HOST || 'localhost');
 // The port on the DEA for communication with the application:
 var port = (process.env.VCAP_APP_PORT || 3000);
 // Start server
-require(__dirname + '/server/controllers/bluemix_services').first_dialog(function(){
-			app.listen(port, host);
-			console.log('App started on port ' + port);
-		});
+app.listen(port, host);
+console.log('App started on port ' + port);

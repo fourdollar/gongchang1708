@@ -9,7 +9,7 @@ var workstandard_id = _.map(workstandard.standard_work_amount, function(data_tem
 var worklist = require('../data/patterns/worklist.json');
 var fs = require('fs');
 var serverdata = 'server/data'
-	var request = require('request');
+var request = require('request');
 var async = require('async');
 var bluemix_services = require('./bluemix_services.js');
 
@@ -39,73 +39,81 @@ var analyze_worktime = function (req, res, callback){
 	}
 
 	var data_for_assessment_table = {
-			"tablename":"mean_dev.xlsx",
-			"header":data_assessment_header,
-			"data":data_for_assessment
+		"tablename":"mean_dev.xlsx",
+		"header":data_assessment_header,
+		"data":data_for_assessment
 	};
 	console.log(data_for_assessment_table);
 
 	async.waterfall([
-	                 function (next){
-	                	 //spssで個人と全体とを比較
-	                	 bluemix_services.spss_analyze2(data_for_assessment_table,"assessment", function(watson_vr_spss_res) {
-	                		 var spss_assessment_data = watson_vr_spss_res[0].data;
-	                		 var spss_assessment_header = watson_vr_spss_res[0].header;
-	                		 var dialog_input = "";
-	                		 for (var i=0;i<spss_assessment_data.length;i++){
-	                			 dialog_input += spss_assessment_data[i][spss_assessment_header.indexOf("comment_id")];
-	                		 }
+		function (next){
+			//spssで個人と全体とを比較
+			bluemix_services.spss_analyze2(data_for_assessment_table,"assessment", function(watson_vr_spss_res) {
+				var spss_assessment_data = watson_vr_spss_res[0].data;
+				var spss_assessment_header = watson_vr_spss_res[0].header;
+				var dialog_input = "";
+				for (var i=0;i<spss_assessment_data.length;i++){
+					dialog_input += spss_assessment_data[i][spss_assessment_header.indexOf("comment_id")];
+				}
 
-	                		 var name_values = [];
+				var name_values = [];
 
-	                		 _.each(spss_assessment_data, function(data_temp) {
-	                			 if(data_temp[spss_assessment_header.indexOf("timeover_flag")] == 1){
-	                				 var spss_data_class = data_temp[spss_assessment_header.indexOf("class")];
-	                				 if(spss_data_class == "cpu" || spss_data_class == "mem"){
-	                					 spss_data_class += "_only";
-	                				 }
-	                				 name_values.push({
-	                					 name: "overtime_" + spss_data_class + "_value",
-	                					 value: data_temp[spss_assessment_header.indexOf("timeover")]
-	                				 });
-	                			 }
-	                		 });
-	                		 next(null, name_values, dialog_input);
-	                	 });
-	                 },
-	                 function(name_values, dialog_input, next){
-	                	 //時間がかかっている作業のみDialogのプロファイルに時間を設定
-	                	 if(name_values.length > 0){
-	                		 bluemix_services.dialog_updateProfile(name_values, function(){
-	                			 next(null, dialog_input);
-	                		 });
-	                	 }else{
-	                		 dialog_input += " no_overtime";
-	                		 next(null, dialog_input);
-	                	 }
-	                 },
-	                 function(dialog_input, next){
-	                	 //Dialogからメッセージを取得
-	                	 bluemix_services.dialog_conversation(dialog_input,  function(conversation){
-	                		 var dialog_comment = conversation.response;
+				_.each(spss_assessment_data, function(data_temp) {
+					if(data_temp[spss_assessment_header.indexOf("timeover_flag")] == 1){
+						var spss_data_class = data_temp[spss_assessment_header.indexOf("class")];
+						if(spss_data_class == "cpu" || spss_data_class == "mem"){
+							spss_data_class += "_only";
+						}
+						name_values.push({
+							name: "overtime_" + spss_data_class + "_value",
+							value: data_temp[spss_assessment_header.indexOf("timeover")]
+						});
+					}
+				});
+				next(null, name_values, dialog_input);
+			});
+		},
+		function(name_values, dialog_input, next){
+			//時間がかかっている作業のみDialogのプロファイルに時間を設定
+			if(name_values.length == 0){
+				dialog_input += " no_overtime";
+			}
 
-	                		 console.log('dialog_comment:');
-	                		 console.log(dialog_comment);
-	                		 next(null, dialog_comment);
-	                	 });
-	                 }
-	                 ],function(err, dialog_comment){
+			// Conversation 対応
+			console.log("###############################");
+			console.log("Conversation呼び出し");
+			console.log(JSON.stringify(name_values));
+			console.log(JSON.stringify(dialog_input));
+			console.log("###############################");
+
+			var conversation_context = [];
+			var temp_name = [];
+			var temp_value = [];
+			_.each(name_values, function(temp_name_value, index){
+				temp_name.push(temp_name_value.name);
+				temp_value.push(temp_name_value.value);
+			})
+			conversation_context = _.object(temp_name,temp_value);
+			var conversation_params = {
+				"context": conversation_context
+			}
+
+			bluemix_services.conversation_message(conversation_params, dialog_input,  function(conversation_message_result){
+				console.log("###############################");
+				console.log("conversation_message_result:");
+				console.log(JSON.stringify(conversation_params));
+				console.log(JSON.stringify(conversation_message_result));
+				console.log(JSON.stringify(conversation_message_result.comment));
+
+				next(null, conversation_message_result.comment);
+			});
+		}
+	],function(err, dialog_comment){
 		var standard_user_data = _.extend(workstandard, resdata);
 		dialog_comment = _.filter(dialog_comment, function(com){return com != "";});
 		standard_user_data = _.extend(standard_user_data, {dialog_summary: dialog_comment[0], dialog_detail: dialog_comment.slice(1)});
 		callback(standard_user_data);
 	});
-
-
-
-
-	//res.json(_.extend(workstandard, resdata));
-
 };
 
 module.exports = function() {
@@ -113,54 +121,54 @@ module.exports = function() {
 
 	/*****************************************************************************
 	Get Factory Members
-	 *****************************************************************************/
+	*****************************************************************************/
 	router.get('/api/v0/factory/getmembers', function(req,res){
 		res.json(memberlist);
 	});
 
 	/*****************************************************************************
 	Get Member Assessment Data
-	 *****************************************************************************/
+	*****************************************************************************/
 	// require: memberId
 	router.get('/api/v0/factory/members/:memberId/assessment', function(req,res){
-        var memberId  = req.params.memberId;
+		var memberId  = req.params.memberId;
 
 
 		try{
 			analyze_worktime(req, res, function(data){
 				var resdata = extend(data, workstandard);
 
-                var standardRes = workstandard;
-                // merge assessment data
-                resdata['data'] = {
-                        "columns" : [],
-                        "data" :[
-                                {
-                                        "name": "standard",
-                                        "type": "bar",
-                                        "data":[]
-                                },
-                                {
-                                        "name": "my",
-                                        "type": "line",
-                                        "data":[]
-                                }
-                        ]
-                };
-                var index = {};
-                for(var i = 0;i < standardRes['standard_work_amount'].length;i ++){
-                        resdata['data']['columns'].push({
-                                "id"  : standardRes['standard_work_amount'][i].id,
-                                "name": standardRes['standard_work_amount'][i].name
-                        });
-                        resdata['data']['data'][0]['data'].push(standardRes['standard_work_amount'][i].timer);
-                        index[standardRes['standard_work_amount'][i].id] = i;
-                }
-                for(var i = 0;i < resdata.work_amount.length ;i ++){
-                        var dataIdx = index[resdata.work_amount[i].id];
-                        resdata['data']['data'][1]['data'][dataIdx] = resdata.work_amount[i].timer;
-                }
-                res.json(resdata);
+				var standardRes = workstandard;
+				// merge assessment data
+				resdata['data'] = {
+					"columns" : [],
+					"data" :[
+						{
+							"name": "standard",
+							"type": "bar",
+							"data":[]
+						},
+						{
+							"name": "my",
+							"type": "line",
+							"data":[]
+						}
+					]
+				};
+				var index = {};
+				for(var i = 0;i < standardRes['standard_work_amount'].length;i ++){
+					resdata['data']['columns'].push({
+						"id"  : standardRes['standard_work_amount'][i].id,
+						"name": standardRes['standard_work_amount'][i].name
+					});
+					resdata['data']['data'][0]['data'].push(standardRes['standard_work_amount'][i].timer);
+					index[standardRes['standard_work_amount'][i].id] = i;
+				}
+				for(var i = 0;i < resdata.work_amount.length ;i ++){
+					var dataIdx = index[resdata.work_amount[i].id];
+					resdata['data']['data'][1]['data'][dataIdx] = resdata.work_amount[i].timer;
+				}
+				res.json(resdata);
 				//res.json(data);
 			});
 
@@ -173,7 +181,7 @@ module.exports = function() {
 
 	/*****************************************************************************
 	Get Sunburst Data
-	 *****************************************************************************/
+	*****************************************************************************/
 	router.get('/api/v0/factory/sunburstdata', function(req,res){
 		var resdata = JSON.parse(fs.readFileSync(serverdata+'/patterns/sunburstdata.json','utf8'));
 		res.json(resdata);
@@ -181,7 +189,7 @@ module.exports = function() {
 
 	/*****************************************************************************
 	Get Timeline
-	 *****************************************************************************/
+	*****************************************************************************/
 	router.get('/api/v0/factory/patterns/timeline', function(req,res){
 		var resdata = JSON.parse(fs.readFileSync(serverdata+'/patterns/timeline.json','utf8'));
 		res.json(resdata);
@@ -190,14 +198,14 @@ module.exports = function() {
 
 	/*****************************************************************************
 	Get Work List
-	 *****************************************************************************/
+	*****************************************************************************/
 	router.get('/api/v0/factory/getworklist', function(req,res){
 		res.json(worklist.data);
 	});
 
 	/*****************************************************************************
 	Get Progress Data
-	 *****************************************************************************/
+	*****************************************************************************/
 	router.get('/api/v0/factory/getprogress', function(req,res){
 		try{
 			var resdata = JSON.parse(fs.readFileSync(serverdata+'/progress/progress.json','utf8')).data;
@@ -210,7 +218,7 @@ module.exports = function() {
 
 	/*****************************************************************************
 	Get Video List
-	 *****************************************************************************/
+	*****************************************************************************/
 	// require: memberId
 	router.get('/api/v0/factory/getVideos/:memberId/', function(req,res){
 		var memberId = req.params.memberId;
